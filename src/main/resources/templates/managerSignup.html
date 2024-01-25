@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Signup Form</title>
+   <link rel=" stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Signup</h2>
+        <form action="/signup" method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="fullName" required>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Sigup</button>
+            <div class="container">
+                <span>Already a manager ?<a href="/login">Login</a></span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
