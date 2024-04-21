@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>All Flights</title>
+<link rel=" stylesheet" href="css/flighthistory.css">
+<style>
+</style>
+</head>
+<body>
+	<div class="container">
+		<input type="text" id="searchInput" class="search"
+			oninput="filterFlights()"
+			placeholder="Search by Name...">
+		<div class="h1">
+			<h1>Flight List</h1>
+		</div>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Full Name</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Nationality</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p :${passengers}">
+					<td>[[${p.fullName}]]</td>
+					<td>[[${p.phone}]]</td>
+					<td>[[${p.email}]]</td>
+					<td>[[${p.age}]]</td>
+					<td>[[${p.gender}]]</td>
+					<td>[[${p.nationality}]]</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+function filterFlights() {
+	var input, filter, table, tr, td, i, txtValue;
+	input = document.getElementById("searchInput");
+	filter = input.value.toUpperCase();
+	table = document.getElementsByClassName("table")[0];
+	tr = table.getElementsByTagName("tr");
+
+	for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[1]; // Column index for airline is 5
+		if (td) {
+			txtValue = td.textContent || td.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			} else {
+				tr[i].style.display = "none";
+			}
+		}
+	}
+}
+
+
+</script>
+</html>

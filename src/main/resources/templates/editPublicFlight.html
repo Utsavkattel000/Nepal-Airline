@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Flight</title>
+<link rel=" stylesheet" href="css/addFlight.css">
+</head>
+<body>
+	<div class="add-flight-container">
+		<h1>Edit Flight</h1>
+		<form class="form" action="/updatepublic" th:object=${publicFlight}>
+			<div class="dropdown">
+				<label>Departure Airport</label>
+				 <input type="text" th:field="*{depAirport}" id="searchInput" class="box">
+				<div id="dropdownList" class="dropdown-list"></div>
+			</div>
+			<div class="dropdown2">
+				<label>Destination Airport</label> 
+				<input type="text" th:field="*{desAirport}" name="desAirport" id="searchInput2" class="box2">
+				<div id="dropdownList2" class="dropdown-list2"></div>
+			</div>
+			<label>Price</label> 
+			<input type="number" inputmode="decimal" th:field="*{price}" id="searchInput" class="box"> 
+			<label>Capacity</label>
+			<input type="number" th:field="*{capacity}" class="box"> 
+			<label>Departure Time</label> 
+			<input type="Date" class="input2" th:value="${formattedDate}" name="depDate" required> 
+			<label>Departure Time</label> 
+			<input type="time" class="input2" th:value="${formattedDepTime}" name="depTime" required> 
+			<label>Arrival Time</label> 
+			<input type="time" th:value="${formattedArrivalTime}" class="input2" name="arrivalTime" required> 
+			<label>Airline Name</label> 
+			<input type="text" class="input" th:field="*{airline}" name="airline" required> 
+			<br>
+			<button type="submit" class="button">Update</button>
+			<input type="hidden" th:field="*{id}">
+		</form>
+	</div>
+
+</body>
+<script src="js/home.js">
+	
+</script>
+</html>

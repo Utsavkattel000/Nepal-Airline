@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Booking</title>
+<link rel=" stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<div class="booking-form">
+		
+			<form class="form-booking" action="/flightresult">
+			<p th:if="${error}" style="color: red" th:text="${error}"></p>
+				<div class="dropdown">
+					<input type="text" id="searchInput" name="depAirport" class="box"
+						placeholder="Select Departure Airport" required>
+					<div id="dropdownList" class="dropdown-list"></div>
+				</div>
+				<div class="dropdown2">
+					<input type="text" id="searchInput2" name="desAirport" class="box2"
+						placeholder="Select Destination Airport" required>
+					<div id="dropdownList2" class="dropdown-list2"></div>
+				</div>
+				<div class="date">
+					Departure Date <input class="date-selector" name="depDate" type="date" required>
+				</div>
+				<input class="buttons" type="submit" value="Search Flight">
+			</form>
+		</div>
+
+		<div class="welcome">
+			<button class="Signup" type="button" onclick="redirectToHistory()">Flight History</button>
+			<button class="Login" type="button" onclick="redirectToPending()">Pending Flights</button>
+
+			<div class="welcome-note">Lorem IpsumDiam, aptent varius
+				eleifend penatibus placerat posuere. Amet suscipit ad iaculis varius
+				habitant. Turpis etiam cubilia tincidunt sociis mi vitae laoreet.
+				Volutpat praesent, nisi leo. Vel nisl enim porta natoque gravida.
+				Nostra sociosqu turpis dictum natoque vehicula sollicitudin metus
+				etiam ut mollis? Augue velit, est natoque. Nostra sociosqu turpis
+				dictum natoque vehicula sollicitudin metus etiam ut mollis? Augue
+				velit, est natoque. Nostra sociosqu turpis dictum natoque vehicula
+				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
+				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
+				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
+				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
+				est natoque. Nostra sociosqu turpis dictum natoque vehicula
+				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
+				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
+				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
+				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
+				est natoque. Nostra sociosqu turpis dictum natoque vehicula
+				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
+				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
+				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
+				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
+				est natoque. Nostra sociosqu turpis dictum natoque vehicula
+				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
+				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
+				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
+				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
+				est Elementum dis neque ligula quisque inceptos cras curabitur
+				iaculis</div>
+		</div>
+	</div>
+
+</body>
+<script src="js/userDashboard.js">
+	
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IME Pay</title>
+    <link rel="stylesheet" href="css/imePay.css">
+</head>
+<body>
+    <div class="container">
+        <img src="image/logo.png" style="margin-top: 10px; margin-left: 30%;">
+        <div class="header">Welcome to IME Pay</div>
+        <form action="/payment" method="post">
+            <label for="walletid"></label><br>
+            <input type="text" id="walletid" name="id" placeholder="Enter Your Wallet Email ID" required><br><br>
+            <input type="text" id="regname" name="name" placeholder="Enter Your Registered full name" required><br><br>
+            <button type="submit">Proceed</button>
+        </form>
+        
+    </div>
+    <div class="copyright">
+        ©2024 IME Digital Solution Ltd. All rights Reserved. Version: 4.5.434
+    </div>
+    
+</body>
+<script>
+        // Get the input element
+        var input = document.getElementById('regname');
+
+        // Add event listener for input event
+        input.addEventListener('input', function() {
+            // Get the input value
+            var inputValue = input.value;
+
+            // Regular expression to match only letters and spaces
+            var regex = /^[A-Za-z\s]+$/;
+
+            // Test if the input matches the regular expression
+            if (!regex.test(inputValue)) {
+                // If input doesn't match, set custom validity message
+                input.setCustomValidity('Only letters and spaces are allowed.');
+            } else {
+                // If input matches, clear any custom validity message
+                input.setCustomValidity('');
+            }
+        });
+    </script>
+</html>

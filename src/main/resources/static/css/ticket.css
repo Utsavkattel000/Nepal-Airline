@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .ticket {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .ticket-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+  }
+  
+  .logo {
+    max-width: 80px;
+  }
+  
+  .company-name {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .ticket-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .passenger-info {
+    flex-grow: 1;
+  }
+  
+  .passenger-name {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .passenger-id {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .carry-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px; /* Adjust margin-top as needed */
+  }
+  
+  
+  .flight-details {
+    flex-grow: 2;
+    text-align: right;
+  }
+  
+  .flight-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .departure-info,
+  .destination-info {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  

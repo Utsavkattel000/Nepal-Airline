@@ -1,0 +1,94 @@
+body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            height: auto;
+            overflow-y: scroll;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            padding: 20px;
+            width: 600px;
+            text-align: center;
+            
+        }
+
+        
+
+        .input {
+            padding: 8px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            margin-top: 5px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+                rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+        }
+
+        .button {
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+            border-radius: 10px;
+            background-color: wheat;
+            border: none;
+            height: 40px;
+            padding: 3px;
+            width: 150px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 38%;
+        }
+
+        .button:hover {
+            background-color: #d4a55d;
+        }
+
+        .gender {
+            padding: 8px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            margin-top: 5px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+                rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+        }
+
+        .form {
+            margin-top: 0px;
+            display: grid;
+            flex-direction: column;
+            text-align: center;
+        }
+        .counter-btn{
+            border-radius: 10px;            
+            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+                rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+           padding: 3px;
+            cursor: pointer;
+            margin-top: -10px;
+        }
+        .passenger{
+            padding: 8px;
+            border: solid black .5px;
+            border-radius: 10px;
+            height: 8px;
+            background-color: white;
+            cursor: no-drop;
+        }
+        .passenger1{
+            margin-top: 5px;
+        }
+        .radio{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        }

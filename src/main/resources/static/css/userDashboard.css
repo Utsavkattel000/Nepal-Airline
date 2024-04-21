@@ -1,0 +1,153 @@
+body {
+	height: 96vh;
+}
+
+.container {
+	display: flex;
+	width: calc(100% - 24px);
+	height: calc(100% - 0px);
+	margin: 20px;
+}
+
+.booking-form {
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	border-radius: 35px;
+	padding: 20px;
+	margin-left: 50px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	width: 600px;
+	padding: 50px;
+}
+
+.welcome {
+	border-radius: 35px;
+	margin: 50px;
+	margin-top: 2px;
+	margin-left: 100px;
+	width: 600px;
+}
+
+.welcome-note {
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	border-radius: 20px;
+	padding: 30px;
+	width: 500px;
+	margin: 60px;
+	margin-top: 30px;
+}
+
+.options {
+	margin-top: 10px;
+	padding: 5px;
+	height: 40px;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+	height: 50px;
+}
+
+.dropdown-list {
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 335%;
+	padding: 5px;
+	max-height: 200px;
+	overflow-y: auto;
+	z-index: 999;
+	display: none;
+	cursor: pointer;
+}
+
+.box {
+	width: 335%;
+	height: 40px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.dropdown2 {
+	height: 50px;
+}
+
+.dropdown-list2 {
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 585px;
+	padding: 5px;
+	max-height: 200px;
+	overflow-y: auto;
+	z-index: 999;
+	display: none;
+	cursor: pointer;
+}
+
+.box2 {
+	margin-top: 50px;
+	width: 98%;
+	height: 40px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.date {
+	margin-bottom: 50px;
+	margin-top: 100px;
+}
+
+.date-selector {
+	margin-top: 5px;
+	padding: 5px;
+	height: 48px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.buttons {
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	background-color: wheat;
+	margin: auto;
+	border: none;
+	display: block;
+	margin-top: 30px;
+	height: 40px;
+	padding: 3px;
+	width: 150px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.buttons:hover {
+	background-color: #d4a55d;
+}
+
+.Signup {
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	background-color: wheat;
+	margin: auto;
+	border: none;
+	margin-left: 250px;
+	margin-top: 30px;
+	height: 40px;
+	padding: 3px;
+	width: 150px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.Signup:hover {
+	background-color: #d4a55d;
+}
+
+
+select, input[type="date"] {
+	width: 100%;
+}

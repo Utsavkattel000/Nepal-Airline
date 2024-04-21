@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>OTP Form</title>
+    <link rel="stylesheet" href="css/otp.css">
+</head>
+
+<body>
+    <div class="otp-container">
+        <h1>Verify your OTP</h1>
+        <form class="form" action="/verifyotp" method="post">
+            <p th:if="${error}" style="color: red" th:text="${error}"></p>
+            <label for="password">Your OTP</label>
+            <input type="text" class="input" name="otp" id="otpInput" required>
+            <br>
+            <button type="submit" class="button">Next</button>
+        </form>
+    </div>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var otpInput = document.getElementById('otpInput');
+
+    otpInput.addEventListener('input', function() {
+        var otp = otpInput.value.trim();
+
+        // Check if OTP is exactly 6 digits and contains only numbers
+        if (/^\d{6}$/.test(otp)) {
+            // Clear any previous error message
+            otpInput.setCustomValidity('');
+        } else {
+            // Set error message if OTP is not 6 digits or contains non-numeric characters
+            otpInput.setCustomValidity('OTP must be a 6-digit number');
+        }
+    });
+});
+</script>
+</html>

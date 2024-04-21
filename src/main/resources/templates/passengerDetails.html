@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Form</title>
+<link rel=" stylesheet" href="css/passengerDetails.css">
+</head>
+
+<body>
+	<div class="container">
+
+		<p th:if="${error}" style="color: red" th:text="${error}"></p>
+		<form class="form" id="container" action="/book" method="post">
+			<h3>Passenger</h3>
+			<label for="name">Full Name:</label> 
+			<input type="text" class="input" name="fullName" required> 
+			<label for="phone">Phone:</label>
+			<input type="text" class="input" name="phone" required> 
+			<label for="email">Email:</label> 
+			<input type="email" class="input" name="email" required> 
+			<label for="password">Age</label> 
+			<input type="number" class="input" name="age" id="ageInput" required> 
+			<label for="password">Gender</label> 
+			<select id="gender" name="gender" class="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select> 
+			<label for="password">Nationality</label> 
+			<input type="text" class="input" required name="nationality"> 
+			<br>
+			<div class="passenger1">
+				<label style="font-size: large; font: bolder;">No of
+					Passengers.....</label> <span class="counter-btn" onclick="decrement()">-</span>
+				<input type="number" class="passenger" id="numberOfForms" min="1"
+					max="4" value="1" readonly name="numberOfPassenger"> <span
+					class="counter-btn" onclick="increment()">+</span>
+			</div>
+			<div class="radio">
+				<label style="margin-right: 30px">Payment Method:</label> <input
+					type="radio" name="payment_method" value="esewa" required checked>
+				Esewa <input type="radio" name="payment_method" value="imepay">
+				IME Pay<br>
+			</div>
+
+			<button class="button" type="submit">Next</button>
+		</form>
+
+	</div>
+</body>
+<script src="js/passengerDetails.js">
+	
+</script>
+
+</html>
