@@ -5,7 +5,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springproject.airline.Model.Admin;
 import com.springproject.airline.Model.FlownFlight;
 import com.springproject.airline.Model.Passenger;
 import com.springproject.airline.Model.PublicFlight;
@@ -48,11 +47,7 @@ public class PassengerServiceImpl implements PassengerService{
 	}
 
 
-	@Override
-	public Set<Passenger> getPassengerByFlownFlightAndAdmin(FlownFlight flownFlight, Admin admin) {
-		
-		return passengerRepo.findByFlownFlightAndAdmin(flownFlight, admin);
-	}
+	
 
 
 	@Override
@@ -61,11 +56,10 @@ public class PassengerServiceImpl implements PassengerService{
 		return passengerRepo.findByPublicFlightAndUser(publicFlight, user);
 	}
 
-
 	@Override
-	public Set<Passenger> getPassengerByPublicFlightAndAdmin(PublicFlight publicFlight, Admin admin) {
+	public Set<Passenger> getPassengersByFlownFlight(FlownFlight flownFlight) {
 		
-		return passengerRepo.findByPublicFlightAndAdmin(publicFlight, admin);
+		return passengerRepo.findByFlownFlight(flownFlight);
 	}
 	
 	

@@ -10,13 +10,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import com.springproject.airline.Model.FlownFlight;
 import com.springproject.airline.Model.Passenger;
-import com.springproject.airline.Model.Admin;
 import com.springproject.airline.Model.Flight;
 import com.springproject.airline.Model.PublicFlight;
 import com.springproject.airline.Model.User;
 import com.springproject.airline.service.FlownFlightService;
 import com.springproject.airline.service.PassengerService;
-import com.springproject.airline.service.AdminService;
 import com.springproject.airline.service.FlightService;
 import com.springproject.airline.service.PublicFlightService;
 import com.springproject.airline.service.UserService;
@@ -34,10 +32,8 @@ public class AutomaticFlightScheduler {
 	PassengerService passengerService;
 	@Autowired
 	UserService userService;
-	@Autowired
-	AdminService adminService;
 
-	@Scheduled(cron = "0/30 22 * * * ?")
+	@Scheduled(cron = "0/30 30 * * * ?")
 	public void autoUpdateFlight() {
 		List<Flight> flights = flightService.getAllFlights();
 		LocalDate today = LocalDate.now();
@@ -75,8 +71,6 @@ public class AutomaticFlightScheduler {
 				LocalDate depDate= publicFlight.getDepDate();
 				if (depTime.equals(nowTime) || depTime.isBefore(nowTime) || depDate.isBefore(nowDate) ) {
 					if (publicFlight != null) {
-						Set<Admin> admins = new HashSet<>();
-						admins.addAll(adminService.getAdminByPublicFlightId(publicFlight.getId()));
 						Set<User> users = new HashSet<>();
 						users.addAll(userService.getUserByPublicFlightId(publicFlight.getId()));
 						Set<Passenger> passengers = passengerService.getPassengersByPublicFlight(publicFlight);
@@ -95,16 +89,6 @@ public class AutomaticFlightScheduler {
 							passenger.setFlownFlight(flownFlight);
 							passenger.setPublicFlight(null);
 							passengerService.savePassenger(passenger);
-						}
-
-						for (Admin admin : admins) {
-							Set<FlownFlight> flight= admin.getFlownFlight();
-							flight.add(flownFlight);
-							admin.setFlownFlight(flight);
-							Set<Long> ids=admin.getPublicFlightId();
-							ids.remove(publicFlight.getId());
-							admin.setPublicFlightId(ids);
-							adminService.saveAdmin(admin);
 						}
 
 						for (User user : users) {

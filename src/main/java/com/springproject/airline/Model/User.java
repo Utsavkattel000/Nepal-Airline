@@ -42,6 +42,7 @@ public class User {
 	private Set<Long> publicFlightId= new HashSet<>();
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<FlownFlight> flownFlight;
+	private String role;
 	public void addPublicFlightId(Long publicFlight) {
 		publicFlightId.add(publicFlight);
 	}

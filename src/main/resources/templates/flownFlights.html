@@ -4,21 +4,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>All Flights</title>
-<link rel=" stylesheet" href="css/viewFlights.css">
+<link rel=" stylesheet" href="css/flownFlights.css">
 </head>
 <body>
 	<div class="container">
-		<input type="text" id="searchInput" class="search"
-			oninput="filterFlights()" placeholder="Search by Flight Name...">
+	
+	        
 		<div class="h1">
 			<h1>Flight List</h1>
 		</div>
-
+<div class="searchContainer">
+	<input type="text" id="searchInput" class="search" oninput="filterFlights()" placeholder="Search by Flight Name...">
+	<input type="Date" id="searchDate" class="searchDate" oninput="filterFlightsByDate()">
+	</div>
 
 		<table class="table">
 			<thead>
 				<tr>
 					<th>Capacity</th>
+					<th>Departure Date</th>
 					<th>Departure Airport</th>
 					<th>Destination Airport</th>
 					<th>Departure Time</th>
@@ -29,23 +33,22 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="f :${flightList}">
+				<tr th:each="f :${flownFlights}">
 					<td>[[${f.capacity}]]</td>
+					<td>[[${f.depDate}]]</td>
 					<td>[[${f.depAirport}]]</td>
 					<td>[[${f.desAirport}]]</td>
 					<td>[[${f.depTime}]]</td>
 					<td>[[${f.arrivalTime}]]</td>
 					<td>[[${f.airline}]]</td>
 					<td>[[${f.price}]]</td>
-					<td><a th:href="@{/edit(id=${f.id})}"><input type="Submit"
-							style="text-decoration: none;" class="button" value="Edit"></a>
-						<a th:href="@{/delete(id=${f.id})}"><input type="submit"
-							value="Delete" class="button"></a> </td>
+					<td><a th:href="@{/flown-passengers(id=${f.id})}"><input type="Submit"
+							style="text-decoration: none;" class="button" value="Passengers"></a>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </body>
-<script src="js/viewFlights.js">
+<script src="js/flownFlights.js">
 </script>
 </html>

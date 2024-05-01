@@ -33,10 +33,14 @@
 					<td>[[${f.arrivalTime}]]</td>
 					<td>[[${f.airline}]]</td>
 					<td>[[${f.price}]]</td>
-					<td><a th:href="@{/editpublic(id=${f.id})}"> <input
-							type="submit" value="Edit" class="button"></a>
-						<a th:href="@{/book(id=${f.id})}"><input class="button"
-							type="submit" value="Book"></a></td>
+					<td>
+					<a th:href="@{/all-passengers(id=${f.id})}"> 
+					<input type="submit" value="Passengers" class="button"></a>
+					<a th:href="@{/editpublic(id=${f.id})}"> 
+					<input type="submit" value="Edit" class="button"></a>
+					<a th:href="@{/book(id=${f.id})}">
+					<input class="button" type="submit" value="Book"></a>
+					</td>
 				</tr>
 			</tbody>
 		</table>

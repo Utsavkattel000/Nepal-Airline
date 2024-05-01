@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>All Flights</title>
+<title>All Passengers</title>
 <link rel=" stylesheet" href="css/flighthistory.css">
 <style>
 </style>
@@ -14,7 +14,7 @@
 			oninput="filterFlights()"
 			placeholder="Search by Name...">
 		<div class="h1">
-			<h1>Flight List</h1>
+			<h1>Passengers</h1>
 		</div>
 
 
@@ -51,7 +51,7 @@ function filterFlights() {
 	tr = table.getElementsByTagName("tr");
 
 	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[1]; // Column index for airline is 5
+		td = tr[i].getElementsByTagName("td")[0]; // Column index for airline is 5
 		if (td) {
 			txtValue = td.textContent || td.innerText;
 			if (txtValue.toUpperCase().indexOf(filter) > -1) {

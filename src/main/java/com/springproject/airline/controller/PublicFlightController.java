@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +20,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
-import com.springproject.airline.Model.Admin;
+
 import com.springproject.airline.Model.Passenger;
 import com.springproject.airline.Model.PublicFlight;
 import com.springproject.airline.Model.User;
-import com.springproject.airline.service.AdminService;
 import com.springproject.airline.service.PassengerService;
 import com.springproject.airline.service.PublicFlightService;
 import com.springproject.airline.service.UserService;
 import com.springproject.airline.utils.MailUtils;
 import com.springproject.airline.utils.PdfGenerator;
+
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
 
@@ -45,9 +46,6 @@ public class PublicFlightController {
 
 	@Autowired
 	PassengerService passengerService;
-
-	@Autowired
-	AdminService adminService;
 
 	@Autowired
 	PdfGenerator pdfGenerator;
@@ -341,7 +339,7 @@ public class PublicFlightController {
 			attribute.addFlashAttribute("error", "Please Login before booking the flight");
 			return "redirect:/login";
 		}
-		Admin admin = (Admin) session.getAttribute("activeAdmin");
+		User admin = (User) session.getAttribute("activeAdmin");
 		User user = (User) session.getAttribute("activeUser");
 		Long selectedFlightId = (Long) session.getAttribute("selectedFlight");
 
@@ -374,9 +372,9 @@ public class PublicFlightController {
 					}
 					passenger.setPublicFlight(publicFlight);
 					if (session.getAttribute("activeAdmin") != null) {
-						passenger.setAdmin(admin);
-						admin.addPublicFlightid(selectedFlightId);
-						adminService.saveAdmin(admin);
+						passenger.setUser(admin);
+						admin.addPublicFlightId(selectedFlightId);
+						userService.saveUser(admin);
 					} else if (session.getAttribute("activeUser") != null) {
 						passenger.setUser(user);
 						user.addPublicFlightId(selectedFlightId);
@@ -399,10 +397,9 @@ public class PublicFlightController {
 	@GetMapping("/successfull")
 	public String success(HttpSession session, Model model, RedirectAttributes attribute) {
 		User user = null;
-		Admin admin = null;
+		User admin = null;
 
 		if (session.getAttribute("activeUser") == null && session.getAttribute("activeAdmin") == null) {
-			attribute.addFlashAttribute("error", "Please Login before booking the flight");
 			attribute.addFlashAttribute("error", "Please login");
 			return "redirect:/login";
 		}
@@ -410,8 +407,8 @@ public class PublicFlightController {
 		PublicFlight flight = publicFlightService.getPublicFlightById((Long) session.getAttribute("selectedFlight"));
 		Set<Passenger> passengers = new HashSet<>();
 		if (session.getAttribute("activeAdmin") != null) {
-			admin = (Admin) session.getAttribute("activeAdmin");
-			passengers = passengerService.getPassengerByPublicFlightAndAdmin(flight, admin);
+			admin = (User) session.getAttribute("activeAdmin");
+			passengers = passengerService.getPassengersByPublicFlightAndUser(flight, admin);
 		} else if (session.getAttribute("activeUser") != null) {
 			user = (User) session.getAttribute("activeUser");
 			passengers = passengerService.getPassengersByPublicFlightAndUser(flight, user);

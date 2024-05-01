@@ -113,3 +113,6 @@ function redirectToHistory() {
 function redirectToPending() {
 	window.location.href = "/pending";
 }
+function redirectToLogout() {
+	window.location.href = "/logout";
+}

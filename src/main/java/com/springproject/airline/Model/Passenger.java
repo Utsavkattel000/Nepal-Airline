@@ -25,9 +25,6 @@ public class Passenger {
 	private String gender;
 	private String nationality;
 	@ManyToOne
-	@JoinColumn(name = "admin_id")
-	private Admin admin;
-	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	@ManyToOne

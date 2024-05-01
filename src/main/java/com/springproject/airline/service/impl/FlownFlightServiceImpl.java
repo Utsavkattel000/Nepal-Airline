@@ -1,5 +1,6 @@
 package com.springproject.airline.service.impl;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,12 @@ public class FlownFlightServiceImpl implements FlownFlightService {
 	public FlownFlight getById(Long id) {
 		
 		return flownFlightRepo.getReferenceById(id);
+	}
+
+	@Override
+	public List<FlownFlight> getAllFlownFlights() {
+		
+		return flownFlightRepo.findAll();
 	}
 
 }
