@@ -1,6 +1,7 @@
 package com.springproject.airline.controller;
 
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import com.springproject.airline.service.FlownFlightService;
 import com.springproject.airline.service.PassengerService;
 import com.springproject.airline.service.PublicFlightService;
 import com.springproject.airline.service.UserService;
+import com.springproject.airline.utils.MailUtils;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -35,6 +37,8 @@ public class UserController {
 	private PublicFlightService publicFlightService;
 	@Autowired
 	private PassengerService passengerService;
+	@Autowired
+	private MailUtils mailUtils;
 	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	@GetMapping("/")
@@ -105,38 +109,75 @@ public class UserController {
 
 	@GetMapping("/signup")
 	public String userSignup(HttpSession session) {
-		if (session.getAttribute("activeUser") != null) {
-			session.invalidate();
-		}
-		return "signup";
+	    if (session.getAttribute("activeUser") != null) {
+	        session.invalidate();
+	    }
+	    return "signup";
 	}
 
 	@PostMapping("/signup")
-	public String postuserSignup(Model model, @ModelAttribute User user, RedirectAttributes attribute) {
-		if (user.getPassword().equals(user.getPassword2())) {
-			try {
-				String hashedPassword = encoder.encode(user.getPassword());
-				user.setPassword(hashedPassword);
-				// this sends the data to signup service while receiving if and which data
-				// already exist in database
-				String error = userService.userSignup(user);
-				if (error == null) {
-					attribute.addFlashAttribute("correct", "Account created successfully");
-					return "redirect:/login";
-				}
-				// Add specific error messege this way cause i was not able to extract that
-				// information from exception
-				model.addAttribute("error", error + " already exists");
-				return "signup";
-			} catch (DataIntegrityViolationException e) {
-				// Add error message to the model
-				model.addAttribute("error", "Some info you entered already exists, try new one");
-				return "redirect:/signup";
-			}
-		}
-		model.addAttribute("error", "Passwords do not match");
-		return "signup";
+	public String postuserSignup(Model model, @ModelAttribute User user, RedirectAttributes attribute, HttpSession session) {
+	    if (user.getPassword().equals(user.getPassword2())) {
+	        try {
+	            // Generate OTP
+	            Random random = new Random();
+	            int randomNumber = random.nextInt(900000) + 100000;
+	            String otp = Integer.toString(randomNumber);
+	            session.setAttribute("otp", otp);
+
+	            String hashedPassword = encoder.encode(user.getPassword());
+	            user.setPassword(hashedPassword);
+
+	            // Store user details in session
+	            session.setAttribute("signupUser", user);
+
+	            // Send OTP via email
+	            mailUtils.sendEmail(user.getEmail(), otp, "OTP for your account creation: ");
+
+	            // Redirect to OTP verification page
+	            return "redirect:/signupotp";
+	        } catch (Exception e) {
+	        	System.out.println(e);
+	            model.addAttribute("error", "An error occurred during signup. Please try again.");
+	            return "signup";
+	        }
+	    }
+	    model.addAttribute("error", "Passwords do not match");
+	    return "signup";
 	}
+
+	@GetMapping("/signupotp")
+	public String verifyOtp(HttpSession session) {
+	    if (session.getAttribute("signupUser") != null) {
+	        return "signupOtp";
+	    }
+	    return "redirect:/signup";
+	}
+
+	@PostMapping("/signupotp")
+	public String postVerifyOtp(@RequestParam("otp") String otp, Model model, HttpSession session, RedirectAttributes attribute) {
+	    if (session.getAttribute("signupUser") != null) {
+	        String sessionOtp = (String) session.getAttribute("otp");
+	        if (sessionOtp.equals(otp)) {
+	            User user = (User) session.getAttribute("signupUser");
+	            try {
+	                userService.userSignup(user);
+	                session.removeAttribute("signupUser");
+	                session.removeAttribute("otp");
+	                attribute.addFlashAttribute("correct", "Account created successfully");
+	                return "redirect:/login";
+	            } catch (DataIntegrityViolationException e) {
+	                model.addAttribute("error", user.getEmail() + " already exists");
+	                return "signup";
+	            }
+	        } else {
+	            model.addAttribute("error", "OTP is incorrect.");
+	            return "signupOtp";
+	        }
+	    }
+	    return "redirect:/signup";
+	}
+
 
 	@GetMapping("/history")
 	public String history(HttpSession session, Model model, RedirectAttributes attribute) {

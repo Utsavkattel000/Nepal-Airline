@@ -48,6 +48,14 @@ function validatePassword() {
 
 document.getElementsByName("password")[0].addEventListener('input', validatePassword);
 document.getElementsByName("password2")[0].addEventListener('input', validatePassword);
-
+var fullname = document.getElementById('fullname');
+fullname.addEventListener('input', function () {
+        var pattern = /^[a-zA-Z\s]*$/;
+        if (!pattern.test(this.value)) {
+            this.setCustomValidity('Full name should only contain a to z, A to Z and spaces.');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
 
 

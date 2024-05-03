@@ -11,7 +11,7 @@
 		<h1>Signup</h1>
 		<form class="form" action="/signup" method="post">
 			<p th:if="${error}" style="color: red" th:text="${error}"></p>
-			<label for="name">Full Name:</label> <input type="text" class="input"
+			<label for="name">Full Name:</label> <input type="text" class="input" id="fullname"
 				name="fullName" required> <label for="phone">Phone:</label>
 			<input type="text" class="input" name="phone" required> <label
 				for="email">Email:</label> <input type="email" class="input"

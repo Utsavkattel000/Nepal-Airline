@@ -38,26 +38,34 @@ public class AdminController {
 			return "adminDashboard";
 		}
 		attribute.addFlashAttribute("error", "Trying to be sneaky? Login now");
-		return "redirect:/admin-login";
+		return "redirect:/login";
 	}
 
 	@GetMapping("/all-passengers")
 	public String allPassenger(@RequestParam long id, HttpSession session,Model model, RedirectAttributes attribute) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		}
 		 Set<Passenger> passengers=passengerService.getPassengersByPublicFlight(publicFlightService.getPublicFlightById(id));
 		model.addAttribute("passengers", passengers);
 		return "passengers";
 	}
 	@GetMapping("/flown-flights")
-	public String flownFlights(Model model) {
+	public String flownFlights(Model model, HttpSession session, RedirectAttributes attribute) {
+		if (session.getAttribute("activeAdmin") == null) {
+			attribute.addFlashAttribute("error", "Please login");
+			return "redirect:/login";
+		}
 		model.addAttribute("flownFlights",flownFlightService.getAllFlownFlights());
 		return "flownFlights";
 	}
 	@GetMapping("/flown-passengers")
-	public String flownPassengers(Model model, @RequestParam Long id) {
+	public String flownPassengers(Model model, @RequestParam Long id,HttpSession session, RedirectAttributes attribute) {
+		if (session.getAttribute("activeAdmin") == null) {
+			attribute.addFlashAttribute("error", "Please login");
+			return "redirect:/login";
+		}
 		model.addAttribute("passengers", passengerService.getPassengersByFlownFlight(flownFlightService.getById(id)));
 		return "passengers";
 	}

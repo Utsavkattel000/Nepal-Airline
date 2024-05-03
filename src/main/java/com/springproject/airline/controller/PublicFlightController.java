@@ -68,7 +68,7 @@ public class PublicFlightController {
 			RedirectAttributes attribute) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Login please");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		}
 		model.addAttribute("availableFlights", publicFlightService.searchFlight(publicFlights.getDepDate(),
 				publicFlights.getDepAirport(), publicFlights.getDesAirport()));
