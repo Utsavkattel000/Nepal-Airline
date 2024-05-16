@@ -33,7 +33,7 @@ public class AutomaticFlightScheduler {
 	@Autowired
 	UserService userService;
 
-	@Scheduled(cron = "0/30 30 * * * ?")
+	@Scheduled(cron = "0/30 27 * * * ?")
 	public void autoUpdateFlight() {
 		List<Flight> flights = flightService.getAllFlights();
 		LocalDate today = LocalDate.now();

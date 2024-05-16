@@ -81,14 +81,14 @@ public class PublicFlightController {
 			return "addPublicFlight";
 		}
 		attribute.addFlashAttribute("error", "Don't be sneaky! Please login");
-		return "redirect:/admin-login";
+		return "redirect:/login";
 	}
 
 	@PostMapping("/add-public-flight")
 	public String postAdd(RedirectAttributes attribute, Model model, PublicFlight publicFlight, HttpSession session) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		}
 		boolean error = publicFlightService.dupeCheck(publicFlight);
 		if (error == false) {
@@ -508,7 +508,7 @@ public class PublicFlightController {
 	public String edit(@RequestParam Long id, Model model, HttpSession session, RedirectAttributes attribute) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		} else {
 			PublicFlight publicFlight = publicFlightService.getPublicFlightById(id);
 			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -528,9 +528,27 @@ public class PublicFlightController {
 	public String update(@ModelAttribute PublicFlight publicFlight, RedirectAttributes attribute, HttpSession session) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		}
 		publicFlightService.saveFlight(publicFlight);
 		return "redirect:/admin-dashboard";
 	}
+	@GetMapping("/cancel")
+	public String cancel(HttpSession session) {
+		if(session.getAttribute("activeAdmin")!=null) {
+			return "redirect:/admin-dashboard";
+		} else if(session.getAttribute("activeUser")!=null) {
+			return "redirect:/user-dashboard";
+		}
+	 return "redirect:/login";	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -27,14 +27,14 @@ public class FlightController {
 			return "addFlight";
 		}
 		attribute.addFlashAttribute("error", "Don't be sneaky! Please login");
-		return "redirect:/admin-login";
+		return "redirect:/login";
 	}
 
 	@PostMapping("/add-flight")
 	public String postAdd(RedirectAttributes attribute, Model model, Flight flight, HttpSession session) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		}
 		boolean error = flightService.dupeCheck(flight);
 		if (error == false) {
@@ -49,7 +49,7 @@ public class FlightController {
 	public String viewFlights(Model model, HttpSession session, RedirectAttributes attribute) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		}
 		model.addAttribute("flightList", flightService.getAllFlights());
 		return "viewFlights";
@@ -59,7 +59,7 @@ public class FlightController {
 	public String delete(@RequestParam Long id, HttpSession session, RedirectAttributes attribute) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		} else {
 			flightService.deleteById(id);
 			return "redirect:/view-flights";
@@ -70,7 +70,7 @@ public class FlightController {
 	public String edit(@RequestParam Long id, Model model, HttpSession session, RedirectAttributes attribute) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		} else {
 			Flight flight = flightService.getFlightById(id);
 			DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
@@ -87,7 +87,7 @@ public class FlightController {
 	public String update(@ModelAttribute Flight flight, RedirectAttributes attribute, HttpSession session) {
 		if (session.getAttribute("activeAdmin") == null) {
 			attribute.addFlashAttribute("error", "Please Login");
-			return "redirect:/admin-login";
+			return "redirect:/login";
 		}
 		flightService.updateFlight(flight);
 		return "redirect:/view-flights";

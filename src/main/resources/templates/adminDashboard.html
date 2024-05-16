@@ -15,51 +15,56 @@
 			<form class="form-booking" action="/admin-flight-result">
 				<div class="dropdown">
 					<input type="text" id="searchInput" class="box"
-						placeholder="Select Departure Airport" name="depAirport">
+						placeholder="Select Departure Airport" name="depAirport" required>
 					<div id="dropdownList" class="dropdown-list"></div>
 				</div>
 				<div class="dropdown2">
 					<input type="text" id="searchInput2" class="box2"
-						placeholder="Select Destination Airport" name="desAirport">
+						placeholder="Select Destination Airport" name="desAirport" required>
 					<div id="dropdownList2" class="dropdown-list2"></div>
 				</div>
 				<div class="date">
-					Departure Date <input class="date-selector" type="date" name="depDate">
+					Departure Date <input class="date-selector" type="date" name="depDate"  required>
 				</div>
 				<input class="buttons" type="submit" value="Search Flight">
 			</form>
 		</div>
 
 		<div class="welcome">
-			<div class="welcome-note">Lorem IpsumDiam, aptent varius
-				eleifend penatibus placerat posuere. Amet suscipit ad iaculis varius
-				habitant. Turpis etiam cubilia tincidunt sociis mi vitae laoreet.
-				Volutpat praesent, nisi leo. Vel nisl enim porta natoque gravida.
-				Nostra sociosqu turpis dictum natoque vehicula sollicitudin metus
-				etiam ut mollis? Augue velit, est natoque. Nostra sociosqu turpis
-				dictum natoque vehicula sollicitudin metus etiam ut mollis? Augue
-				velit, est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est Elementum dis neque ligula quisque inceptos cras curabitur
-				iaculis</div>
+			<div class="welcome-note">
+			<div class="content">
+			<h2>Welcome to Your Dashboard, Admin!</h2>
+            Before making any changes, please read through these instructions carefully to ensure a smooth navigation experience. If you encounter any confusion, feel free to reach out to a developer for assistance.
+            <br>
+            <br>
+            1.Refreshing Your Dashboard: You can refresh your dashboard at any time by clicking on the logo located on the left side of the navbar.
+            <br>
+            <br>
+            2. Flight History: To view the flights you have flown in the past, simply click on the "Flight History" button in the navbar.
+            <br>
+            <br>
+            3. Pending Flights: Check your pending flights, those booked but yet to depart, by clicking on the "Pending Flights" button in the navbar.
+            <br>
+            <br>
+            4. Flown Flights Database: Access all flown flights ever recorded in the database, including passenger information, by clicking on the "Flown Flights" button in the navbar.
+            <br>
+            <br>
+            5. Adding Public Flights: Click on the "Add Public Flight" button to add a flight for a specific day in the future. Remember, this flight is for one day only and is not scheduled automatically by the system. (You can Scroll here.)
+            <br>
+            <br>
+            6. Adding New Scheduled Flights: Use the "Add New Flight" button to add a flight that will be automatically scheduled by the system for everyday use. Be cautious, as the system will schedule this flight instantly for today up to 12 days ahead. Contact a developer if you are confused about this.
+            <br>
+            <br>
+            7. Viewing System Flights: By clicking "View All Flights", you can see all flights that the system uses as a data source to schedule future flights. These flights are added using the "Add New Flight" button.
+            <br>
+            <br>
+            8. Booking Flights: Easily book flights of your choice by utilizing the search feature located on the left of this instruction box.
+            <br>
+            <br>
+            Remember, these instructions must be read thoroughly before making any changes. Should you encounter any confusion or require further assistance, don't hesitate to contact a developer.
+            Happy navigating!
+</div>
+</div>
 		</div>
 	</div>
 </body>

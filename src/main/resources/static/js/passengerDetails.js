@@ -51,7 +51,25 @@ var ageInput = document.getElementById('ageInput');
       // alert('Please enter an age between 1 and 120.');
     }
   });
+  var fullname = document.getElementById('fullName');
+fullname.addEventListener('input', function () {
+        var pattern = /^[a-zA-Z\s]*$/;
+        if (!pattern.test(this.value)) {
+            this.setCustomValidity('Full name should only contain a to z, A to Z and spaces.');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
 
+  var nationality = document.getElementById('nationality');
+      nationality.addEventListener('input', function () {
+        var pattern = /^[a-zA-Z\s]*$/;
+        if (!pattern.test(this.value)) {
+            this.setCustomValidity('Full name should only contain a to z, A to Z and spaces.');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
 
 
 

@@ -24,22 +24,27 @@
 		<form class="form" action="/add-public-flight" method="post">
 			<p th:if="${error}" style="color: red" th:text="${error}"></p>
 			<div class="dropdown">
-				<label>Departure Airport</label> <input type="text"
-					name="depAirport" id="searchInput" class="box">
+				<label>Departure Airport</label> 
+				<input type="text" name="depAirport" id="searchInput" class="box" required>
 				<div id="dropdownList" class="dropdown-list"></div>
 			</div>
 			<div class="dropdown2">
-				<label>Destination Airport</label> <input type="text"
-					name="desAirport" id="searchInput2" class="box2">
+				<label>Destination Airport</label> 
+				<input type="text" name="desAirport" id="searchInput2" class="box2" required>
 				<div id="dropdownList2" class="dropdown-list2"></div>
 			</div>
-			<label>Departure Time</label> <input type="time" class="input2"
-				name="depTime" required> <label>Arrival Time</label> <input
-				type="time" class="input2" name="arrivalTime" required> <label>Capacity</label>
-			<input type="number" class="input" name="capacity" required> <label>Price</label><input
-				type="number" inputmode="decimal" name="price" class="input"> <label>Airline
-				Name</label> <input type="text" class="input" name="airline" required>
-				<label>Departure Date</label> <input type="Date" class="input" name="depDate" required>
+			<label>Departure Time</label> 
+			<input type="time" class="input2" name="depTime" required> 
+			<label>Arrival Time</label> 
+			<input type="time" class="input2" name="arrivalTime" required> 
+			<label>Capacity</label>
+			<input type="number" class="input" name="capacity" id="capacity" required> 
+			<label>Price</label>
+			<input type="number" inputmode="decimal" name="price" id="price" class="input" required> 
+			<label>Airline Name</label> 
+			<input type="text" class="input" name="airline" id="name" required>
+			<label>Departure Date</label> 
+			<input type="Date" class="input" name="depDate" required>
 			<br>
 			<button type="submit" class="button">Add Flight</button>
 		</form>

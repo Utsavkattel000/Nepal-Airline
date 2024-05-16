@@ -46,6 +46,7 @@
             color: white;
             border: none;
             border-radius: 5px;
+            cursor: pointer;
         }
         .copyright{
             margin-left: 38%;

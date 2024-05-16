@@ -93,18 +93,28 @@ searchInput2.addEventListener("blur", function() {
 
 	}
 });
-    var depDateInput = document.querySelector('input[name="depDate"]');
+  var depDateInput = document.querySelector('input[name="depDate"]');
 
-    // Get today's date
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-    var yyyy = today.getFullYear();
-    var todayString = yyyy + '-' + mm + '-' + dd;
+// Get today's date
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+var yyyy = today.getFullYear();
+var todayString = yyyy + '-' + mm + '-' + dd;
 
-    // Set the minimum attribute of the input field to today's date
-    depDateInput.setAttribute('min', todayString);
+// Set the minimum attribute of the input field to today's date
+depDateInput.setAttribute('min', todayString);
 
+// Calculate the maximum date (today + 12 days)
+var maxDate = new Date(today);
+maxDate.setDate(maxDate.getDate() + 12);
+var max_dd = String(maxDate.getDate()).padStart(2, '0');
+var max_mm = String(maxDate.getMonth() + 1).padStart(2, '0'); // January is 0!
+var max_yyyy = maxDate.getFullYear();
+var maxDateString = max_yyyy + '-' + max_mm + '-' + max_dd;
+
+// Set the maximum attribute of the input field to 12 days into the future
+depDateInput.setAttribute('max', maxDateString);
 
 
 function redirectToHistory() {
