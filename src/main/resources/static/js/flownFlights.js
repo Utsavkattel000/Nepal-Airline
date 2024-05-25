@@ -19,8 +19,8 @@ function applyFilters() {
     tr = table.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {
-        tdName = tr[i].getElementsByTagName("td")[6]; // Column index for airline is 5
-        tdDate = tr[i].getElementsByTagName("td")[1]; // Column index for date is 1
+        tdName = tr[i].getElementsByTagName("td")[5]; // Column index for airline is 5
+        tdDate = tr[i].getElementsByTagName("td")[0]; // Column index for date is 1
         if (tdName && tdDate) {
             txtValueName = tdName.textContent || tdName.innerText;
             txtValueDate = tdDate.textContent || tdDate.innerText;

@@ -27,5 +27,6 @@ public interface PublicFlightRepository extends JpaRepository<PublicFlight, Long
 	
 	PublicFlight getPublicFlightByDepTimeAndDepDate(LocalTime closestTime,LocalDate today);
 	
+    List<PublicFlight> getFlightsByDepDate(LocalDate today);
 	 
 }

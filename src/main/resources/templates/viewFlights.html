@@ -2,50 +2,58 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<meta charset="ISO-8859-1">
-<title>All Flights</title>
-<link rel=" stylesheet" href="css/viewFlights.css">
+    <meta charset="ISO-8859-1">
+    <title>viewFlights</title>
+    <link rel=" stylesheet" href="css/flownFlights.css">
+    <style>
+    </style>
 </head>
+
 <body>
-	<div class="container">
-		<input type="text" id="searchInput" class="search"
-			oninput="filterFlights()" placeholder="Search by Flight Name...">
-		<div class="h1">
-			<h1>Flight List</h1>
-		</div>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
 
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Capacity</th>
-					<th>Departure Airport</th>
-					<th>Destination Airport</th>
-					<th>Departure Time</th>
-					<th>Arrival Time</th>
-					<th>Flight Name</th>
-					<th>Price</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="f :${flightList}">
-					<td>[[${f.capacity}]]</td>
-					<td>[[${f.depAirport}]]</td>
-					<td>[[${f.desAirport}]]</td>
-					<td>[[${f.depTime}]]</td>
-					<td>[[${f.arrivalTime}]]</td>
-					<td>[[${f.airline}]]</td>
-					<td>[[${f.price}]]</td>
-					<td><a th:href="@{/edit(id=${f.id})}"><input type="Submit"
+    </div>
+    <div class="container">
+        <div class="h1">
+            <h1 style="margin-left: 650px;">All Flights</h1>
+            <input type="text" id="searchInput" class="search" oninput="filterFlights()" placeholder="Search by Flight Name...">
+        </div>
+        
+        <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Departure Airport</th>
+                    <th>Destination Airport</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Flight Name</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="f :${flightList}">
+                    <td>[[${f.depAirport}]]</td>
+                    <td>[[${f.desAirport}]]</td>
+                    <td>[[${f.depTime}]]</td>
+                    <td>[[${f.arrivalTime}]]</td>
+                    <td>[[${f.airline}]]</td>
+                    <td>[[${f.price}]]</td>
+                    <td><a th:href="@{/edit(id=${f.id})}"><input type="Submit"
 							style="text-decoration: none;" class="button" value="Edit"></a>
 						<a th:href="@{/delete(id=${f.id})}"><input type="submit"
 							value="Delete" class="button"></a> </td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        
+    </div>
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
 <script src="js/viewFlights.js">
 </script>
+
 </html>

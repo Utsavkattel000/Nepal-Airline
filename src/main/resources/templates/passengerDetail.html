@@ -2,41 +2,88 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dynamic Form</title>
-<link rel=" stylesheet" href="css/passengerDetails.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>passengerDetail</title>
+    <link rel=" stylesheet" href="css/passengerDetails.css">
+    <style>
+     .wrapper {
+            background-image: url(image/bgairlines.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            margin-left: -20px;
+            margin-right: -8px;
+            height: 600px;
+            overflow: hidden;
+        }
+         .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 15px;
+            background-color: #82D0F6;
+            width: 800px;
+            margin-left: 100px;
+            max-height: 420px;
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<form class="form" id="container" action="/booking"
-			th:object="${form}" method="post">
-			<h3>Passenger</h3>
-			<label>Full Name:</label>
-			<input type="text" class="input" name="fullName" id="fullName" required> 
-			<label>Phone:</label>
-			<input type="text" class="input" name="phone" required> 
-			<label>Email:</label> 
-			<input type="email" class="input"name="email" required> 
-			<label>Age</label> 
-			<input type="number" class="input" name="age" id="ageInput" required> 
-			<label>Gender</label> 
-			<select id="gender" name="gender" class="gender">
-				<option value="male">Male</option>
-				<option value="female">Female</option>
-			</select> 
-			<label>Nationality</label> 
-			<input type="text" class="input" required name="nationality" id="nationality"> 
-			<br>
-			<div class="passenger1"></div>
-			<button class="button" type="submit">Next</button>
-		</form>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
 
-	</div>
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <p th:if="${error}" style="color: red" th:text="${error}"></p>
+            <form class="form" id="container" action="/booking" method="post">
+                <h3>Passenger</h3>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="fullName" style="margin-left: -190px;">Full Name:</label>
+                        <input type="text" class="input" name="fullName" id="fullName" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -220px;">Phone:</label>
+                        <input type="text" class="input" name="phone" required>
+                    </div>
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="email" style="margin-left: -220px;">Email:</label>
+                        <input type="email" class="input" name="email" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -230px;">Age:</label>
+                        <input type="number" class="input" name="age" id="ageInput" required>
+                    </div>
+
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label style="margin-left: -215px;">Gender:</label>
+                        <select id="gender" name="gender" class="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -190px;">Nationality:</label>
+                        <input type="text" class="input" required name="nationality" id="nationality">
+                    </div>
+
+                </div>
+                <button class="button" type="submit">Next</button>
+            </form>
+        </div>
+        <img src="image/lady.png" alt="lady" class="lady">
+    </div>
+
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
 <script src="js/passengerDetails.js">
-	
+
 </script>
 
 </html>

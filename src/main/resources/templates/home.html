@@ -2,69 +2,80 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flight Booking</title>
-<link rel=" stylesheet" href="css/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>home</title>
+  <link rel=" stylesheet" href="css/home.css">
+  <style>
+
+    .header {
+      text-align: center;
+      background-image: url("image/bgairlines.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;
+      height: calc(100vh - 70px);
+      /* Adjust height to fit the viewport */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding-top: 50px;
+      /* Make space for the footer */
+      box-sizing: border-box;
+    }
+
+   
+  </style>
 </head>
 
 <body>
-
-	<div class="container">
-		<div class="booking-form">
-			<form class="form-booking" action="/flightresult">
-				<div class="dropdown">
-					<input type="text" id="searchInput" name="depAirport" class="box"
-						placeholder="Select Departure Airport" required>
-					<div id="dropdownList" class="dropdown-list"></div>
-				</div>
-				<div class="dropdown2">
-					<input type="text" id="searchInput2" name="desAirport" class="box2"
-						placeholder="Select Destination Airport" required>
-					<div id="dropdownList2" class="dropdown-list2"></div>
-				</div>
-				<div class="date">
-					Departure Date <input class="date-selector" name="depDate" type="date" required>
-				</div>
-				<input class="buttons" type="submit" value="Search Flight">
-			</form>
-		</div>
-
-		<div class="welcome">
-			<button class="Signup" type="button" onclick="redirectToSignup()">Signup</button>
-			<button class="Login" type="button" onclick="redirectToLogin()">Login</button>
-
-			<div class="welcome-note">
-			<h1>Airline Ticket Booking System</h1>
-			
-				etiam ut mollis? Augue velit, est natoque. Nostra sociosqu turpis
-				dictum natoque vehicula sollicitudin metus etiam ut mollis? Augue
-				velit, est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra</div>
-		</div>
-	</div>
-
+  <div class="navbar">
+    <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
+    <div class="nav-wrapper">
+      <a href="/" class="navs">Home</a>
+      <a href="/about" class="navs">About</a>
+    </div>
+    <button class="btn-signup" onclick="redirectToSignup()">Sign Up</button>
+    <button class="btn-login" onclick="redirectToLogin()">Login</button>
+  </div>
+  <div class="header">
+    <img src="image/airplane.png" alt="Plane Image" class="plane" />
+    <p class="heading">Airline Ticket <br />Booking System</p>
+    <p class="welcome-heading">
+      Welcome to the best Airline Ticket Booking System
+    </p>
+    <div class="search-container">
+      <form action="/flightresult">
+        <div class="inputs">
+          <div class="input-wrapper">
+            <label for="from">From:</label>
+            <div>
+              <input class="input" type="text" id="searchInput" name="depAirport" required />
+              <div id="dropdownList" class="dropdown-list"></div>
+            </div>
+          </div>
+          <div class="input-wrapper">
+            <label for="to">To:</label>
+            <div>
+              <input type="text" class="input" id="searchInput2" name="desAirport" required />
+              <div id="dropdownList2" class="dropdown-list2"></div>
+            </div>
+          </div>
+          <div class="input-wrapper">
+            <label for="date">Date:</label>
+            <input type="date" class="inputdate" id="date" name="depDate" required min="" max=""/>
+          </div>
+          
+          <button type="submit">
+            <img class="searchicon" src="image/icon _search.png" alt="Search Icon" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
-<script src="js/home.js">
-	
-</script>
+<script src="js/home.js"></script>
 </html>

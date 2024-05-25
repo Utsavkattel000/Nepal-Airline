@@ -1,6 +1,5 @@
 nav {
-	background-color: #90EE90;
-	border-radius: 10px;
+	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 	display: flex;
 	padding: 10px;
@@ -22,19 +21,24 @@ nav {
 
 .nav-item {
 	display: inline-block;
-	margin-right: 10px;
+	margin-right: 0px;
 }
 
 .nav-link {
-	color: black;
-	background-color: antiquewhite;
+	padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
 	text-decoration: none;
 	align-items: center;
 	align-content: center;
 	padding: 10px;
 	border-radius: 8px;
 	margin-top: 5px;
-	margin: 20px;
+	margin: 0px;
 	margin-left:42px;
 	cursor: pointer;
 }

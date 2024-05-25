@@ -79,6 +79,23 @@ function displayOptions2(options) {
 	});
 }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const profileImg = document.getElementById('profileImg');
+        const popupDiv = document.getElementById('popupDiv');
+
+        profileImg.addEventListener('click', function (event) {
+            popupDiv.style.display = 'block';
+            event.stopPropagation(); // Prevent click from propagating to document
+        });
+
+        document.addEventListener('click', function () {
+            popupDiv.style.display = 'none';
+        });
+
+        popupDiv.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent click inside popup from closing it
+        });
+    });
 
 searchInput.addEventListener("blur", function() {
 	if (!options.includes(searchInput.value.toUpperCase())) {
@@ -93,6 +110,8 @@ searchInput2.addEventListener("blur", function() {
 
 	}
 });
+
+//take value from html
   var depDateInput = document.querySelector('input[name="depDate"]');
 
 // Get today's date

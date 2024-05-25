@@ -2,29 +2,83 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<title>Signup Form</title>
-<link rel=" stylesheet" href="css/signup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel=" stylesheet" href="css/signup.css">
+    <style>
+
+        .wrapper {
+            background-image: url(image/signupBackground.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -20px;
+            margin-right: -8px;
+            height: 600px;
+            overflow: hidden;
+        }
+
+    </style>
 </head>
 
 <body>
-	<div class="signup-container">
-		<h1>Signup</h1>
-		<form class="form" action="/signup" method="post">
-			<p th:if="${error}" style="color: red" th:text="${error}"></p>
-			<label for="name">Full Name:</label> <input type="text" class="input" id="fullname"
-				name="fullName" required> <label for="phone">Phone:</label>
-			<input type="text" class="input" name="phone" required> <label
-				for="email">Email:</label> <input type="email" class="input"
-				name="email" required> <label for="password">Password:</label>
-			<input type="password" class="input" name="password" required>
-			<label for="password">Retype Password:</label> <input type="password"
-				class="input" name="password2" required> <br>
-			<button type="submit" class="button">Signup</button>
-			<div class="container">
-				<span>Already have an account ?<a href="/login">Login</a></span>
-			</div>
-		</form>
-	</div>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
+        <div class="nav-wrapper">
+            <a href="/" class="navs">Home</a>
+            <a href="/about" class="navs">About</a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <p th:if="${error}" style="color: red" th:text="${error}"></p>
+            <form class="form" id="container" action="/signup" method="post">
+                <h3>Signup</h3>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="fullName" style="margin-left: -190px;">Full Name:</label>
+                        <input type="text" class="input" name="fullName" id="fullName" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -220px;">Phone:</label>
+                        <input type="text" class="input" name="phone" required>
+                    </div>
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="email" style="margin-left: -220px;">Email:</label>
+                        <input type="email" class="input" name="email" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -200px;">Password:</label>
+                        <input type="password" class="input" name="password"required>
+                    </div>
+
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label style="margin-left: -150px;">Retype Password:</label>
+                        <input type="password" class="input" name="password2" required>
+                    </div>
+                    <div class="wrap">
+                        <button class="button" type="submit">Signup</button>
+                        <br>
+                        <br>
+                        <span style="margin-left: 100px;">Already have an account ? <a href="/login" style="text-decoration: none;">Login</a></span>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
-<script src="js/signup.js"></script>
+<script src="js/signup.js">
+</script>
+
 </html>

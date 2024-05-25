@@ -2,53 +2,59 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<meta charset="ISO-8859-1">
-<title>All Flights</title>
-<link rel=" stylesheet" href="css/flownFlights.css">
+    <meta charset="ISO-8859-1">
+    <title>flownFlights</title>
+    <link rel=" stylesheet" href="css/flownFlights.css">
+    <style>
+    </style>
 </head>
-<body>
-	<div class="container">
-	
-	        
-		<div class="h1">
-			<h1>Flight List</h1>
-		</div>
-<div class="searchContainer">
-	<input type="text" id="searchInput" class="search" oninput="filterFlights()" placeholder="Search by Flight Name...">
-	<input type="Date" id="searchDate" class="searchDate" oninput="filterFlightsByDate()">
-	</div>
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Capacity</th>
-					<th>Departure Date</th>
-					<th>Departure Airport</th>
-					<th>Destination Airport</th>
-					<th>Departure Time</th>
-					<th>Arrival Time</th>
-					<th>Flight Name</th>
-					<th>Price</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="f :${flownFlights}">
-					<td>[[${f.capacity}]]</td>
-					<td>[[${f.depDate}]]</td>
-					<td>[[${f.depAirport}]]</td>
-					<td>[[${f.desAirport}]]</td>
-					<td>[[${f.depTime}]]</td>
-					<td>[[${f.arrivalTime}]]</td>
-					<td>[[${f.airline}]]</td>
-					<td>[[${f.price}]]</td>
-					<td><a th:href="@{/flown-passengers(id=${f.id})}"><input type="Submit"
-							style="text-decoration: none;" class="button" value="Passengers"></a>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+<body>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
+
+    </div>
+    <div class="container">
+        <div class="h1">
+            <h1 style="margin-left: 650px;">Flown Flights</h1>
+            <input type="text" id="searchInput" class="search" oninput="filterFlights()" placeholder="Search by Flight Name...">
+	<input type="Date" id="searchDate" class="searchDate" oninput="filterFlightsByDate()">
+        </div>
+        
+        <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Departure Date</th>
+                    <th>Departure Airport</th>
+                    <th>Destination Airport</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Flight Name</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="f :${flownFlights}">
+                    <td>[[${f.depDate}]]</td>
+                    <td>[[${f.depAirport}]]</td>
+                    <td>[[${f.desAirport}]]</td>
+                    <td>[[${f.depTime}]]</td>
+                    <td>[[${f.arrivalTime}]]</td>
+                    <td>[[${f.airline}]]</td>
+                    <td>[[${f.price}]]</td>
+                    <td><a th:href="@{/pendingpassenger(id=${f.id})}"> <input
+							type="submit" value="Passengers" class="button"></a></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        
+    </div>
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
 <script src="js/flownFlights.js">
 </script>
+
 </html>

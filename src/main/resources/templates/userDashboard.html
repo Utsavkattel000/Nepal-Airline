@@ -2,76 +2,96 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flight Booking</title>
-<link rel=" stylesheet" href="css/userDashboard.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>userDashboard</title>
+    <link rel=" stylesheet" href="css/userDashboard.css">
+    <style>
+    .header {
+            text-align: center;
+            background-image: url("image/userdashboardbackground.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            height: calc(100vh - 70px);  
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 50px;
+            box-sizing: border-box;
+            margin-top: -2px;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
+        <div class="nav-wrapper">
+        </div>
+        <a href="/about" class="navs">About</a>
+        <button class="btn-signup" onclick="redirectToHistory()">Flight History</button>
+        <button class="btn-login" onclick="redirectToPending()">Pending Flights</button>
+        <div class="profiles">
+            <img src="image/profile.png" class="profile" id="profileImg" alt="Profile Image">
+            <div class="popup" id="popupDiv">
+                <img src="image/profile.png" class="profile1" alt="Profile Image">
+                <p>Welcome <span th:text="${fullname}"></span></p>
+                <button onclick="redirectToLogout()" class="Logout">Logout</button>
+            </div>
+            <p>Welcome, <span th:text="${fullname}"></span></p>
+        </div>
 
-	<div class="container">
-	
-		<div class="booking-form">
-		
-			<form class="form-booking" action="/flightresult">
-			<p th:if="${error}" style="color: red" th:text="${error}"></p>
-				<div class="dropdown">
-					<input type="text" id="searchInput" name="depAirport" class="box"
-						placeholder="Select Departure Airport" required>
-					<div id="dropdownList" class="dropdown-list"></div>
-				</div>
-				<div class="dropdown2">
-					<input type="text" id="searchInput2" name="desAirport" class="box2"
-						placeholder="Select Destination Airport" required>
-					<div id="dropdownList2" class="dropdown-list2"></div>
-				</div>
-				<div class="date">
-					Departure Date <input class="date-selector" name="depDate" type="date" required>
-				</div>
-				<input class="buttons" type="submit" value="Search Flight">
-			</form>
-		</div>
+    </div>
+    <div class="header">
+        <div class="instructions">
+            <h1> Welcome! <span th:text="${fullname}"></span></h1>
+            <h3>Please read this before using the website.</h3>
+            Instructions:
+            <p>1. To book a flight, use the search box below. Enter the departure airport, destination airport, and
+                travel date. Then, select your desired flight from the available options.</p>
+            <p> 2. To view your booked flights, click the "Pending Flights" button at the top.</p>
+            <p>3. To see past flights or your flight history, click the same button.</p>
+            <p>4. To log out, click your profile name and select "Log Out" from the pop-up.</p>
+            <p>5. If you are concerned about privacy, click "About" on the navbar to read more.</p>
+            Thank you for using our website!
+        </div>
+        <img src="image/namaste.png" alt="namaste" class="namaste" />
+        <div class="search-container">
+            <form action="/flightresult">
+                <p th:if="${error}" style="color: red" th:text="${error}"></p>
+                <div class="inputs">
+                    <div class="input-wrapper">
+                        <label for="from">From:</label>
+                        <div>
+                            <input class="input" type="text" id="searchInput" name="depAirport" required />
+                            <div id="dropdownList" class="dropdown-list"></div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="to">To:</label>
+                        <div>
+                            <input type="text" class="input" id="searchInput2" name="desAirport" required />
+                            <div id="dropdownList2" class="dropdown-list2"></div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="date">Date:</label>
+                        <input type="date" class="inputdate" id="date" name="depDate" required min="" max="" />
+                    </div>
 
-		<div class="welcome">
-			<button class="Signup" onclick="redirectToHistory()">Flight History</button>
-			<button class="Login" onclick="redirectToPending()">Pending Flights</button>
-			<button class="Logout" onclick="redirectToLogout()">Logout</button>
-
-			<div class="welcome-note">Lorem IpsumDiam, aptent varius
-				eleifend penatibus placerat posuere. Amet suscipit ad iaculis varius
-				habitant. Turpis etiam cubilia tincidunt sociis mi vitae laoreet.
-				Volutpat praesent, nisi leo. Vel nisl enim porta natoque gravida.
-				Nostra sociosqu turpis dictum natoque vehicula sollicitudin metus
-				etiam ut mollis? Augue velit, est natoque. Nostra sociosqu turpis
-				dictum natoque vehicula sollicitudin metus etiam ut mollis? Augue
-				velit, est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est natoque. Nostra sociosqu turpis dictum natoque vehicula
-				sollicitudin metus etiam ut mollis? Augue velit, est natoque. Nostra
-				sociosqu turpis dictum natoque vehicula sollicitudin metus etiam ut
-				mollis? Augue velit, est natoque. Nostra sociosqu turpis dictum
-				natoque vehicula sollicitudin metus etiam ut mollis? Augue velit,
-				est Elementum dis neque ligula quisque inceptos cras curabitur
-				iaculis</div>
-		</div>
-	</div>
-
+                    <button type="submit">
+                        <img class="searchicon" src="image/icon _search.png" alt="Search Icon" />
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
 <script src="js/userDashboard.js">
-	
 </script>
+
 </html>

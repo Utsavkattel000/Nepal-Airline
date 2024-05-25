@@ -20,4 +20,6 @@ public interface PublicFlightService {
 	void saveFlight(PublicFlight flight);
 
 	boolean autoUpdate(PublicFlight publicFlight);
+	
+	List<PublicFlight> getPublicFlightsByDepDate(LocalDate today);
 }

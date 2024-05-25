@@ -48,7 +48,7 @@ function validatePassword() {
 
 document.getElementsByName("password")[0].addEventListener('input', validatePassword);
 document.getElementsByName("password2")[0].addEventListener('input', validatePassword);
-var fullname = document.getElementById('fullname');
+var fullname = document.getElementById('fullName');
 fullname.addEventListener('input', function () {
         var pattern = /^[a-zA-Z\s]*$/;
         if (!pattern.test(this.value)) {

@@ -1,31 +1,39 @@
-body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            margin: 0;
-            padding: 0;
+        .navbar {
             display: flex;
+            align-items: center;
             justify-content: center;
-            height: auto;
-            overflow-y: scroll;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .websitelogo {
+            height: 80px;
+            width: 80px;
+            margin-right: auto;
         }
 
         .container {
             margin-top: 50px;
             margin-bottom: 50px;
             border-radius: 15px;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-            padding: 20px;
-            width: 600px;
-            text-align: center;
-            
+            background-color: #82D0F6;
+            width: 800px;
+            margin-left: 100px;
         }
 
-        
+        .lady {
+            margin-left: 250px;
+            margin-top: 230px;
+            height: 384px;
+            width: 225px;
+        }
 
         .input {
             padding: 8px;
+            width: 300px;
             margin-bottom: 10px;
-            margin-right: 10px;
+            margin-left: 50px;
             margin-top: 5px;
             border: 1px solid rgb(255, 255, 255);
             border-radius: 4px;
@@ -35,16 +43,16 @@ body {
         }
 
         .button {
-            box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-            border-radius: 10px;
-            background-color: wheat;
+            border-radius: 30px;
+            background-color: #56B9FF;
             border: none;
             height: 40px;
             padding: 3px;
             width: 150px;
             cursor: pointer;
-            margin-top: 10px;
-            margin-left: 38%;
+            margin-top: 0px;
+            margin-left: 41%;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
         }
 
         .button:hover {
@@ -54,13 +62,14 @@ body {
         .gender {
             padding: 8px;
             margin-bottom: 10px;
-            margin-right: 10px;
+            width: 320px;
+            margin-left: 50px;
             margin-top: 5px;
-            border: 1px solid rgb(255, 255, 255);
+            border: 1px solid ;
             border-radius: 4px;
             background-color: white;
             box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
-                rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+                rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
         }
 
         .form {
@@ -69,26 +78,73 @@ body {
             flex-direction: column;
             text-align: center;
         }
-        .counter-btn{
-            border-radius: 10px;            
-            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
-                rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
-           padding: 3px;
+
+        .counter-btn1 {
+            border-radius: 20px;
+            width: 8px;
+            border: 0.2px solid black;
+            padding: 3px;
+            background-color: #84D7FB;
             cursor: pointer;
-            margin-top: -10px;
+            margin-right: 100px;
         }
-        .passenger{
-            padding: 8px;
-            border: solid black .5px;
-            border-radius: 10px;
-            height: 8px;
-            background-color: white;
-            cursor: no-drop;
+        .counter-btn2 {
+            border-radius: 20px;
+            border: 0.2px solid black;
+            padding: 3px;
+            background-color: #84D7FB;
+            cursor: pointer;
+            margin-left: 100px;
         }
-        .passenger1{
+
+        .passenger {
+        border: none;
+        cursor: progress;
+        text-align: center;
+        }
+
+        .passenger1 {
             margin-top: 5px;
+            margin-left: 50px;
         }
-        .radio{
-        margin-top: 20px;
-        margin-bottom: 20px;
+
+        .radio {
+            margin-top: 7px;
+            margin-bottom: 20px;
+            margin-left: 45px;
+            font-size: larger;
+        }
+        .radio input[type="radio"] {
+            width: 20px;
+            height: 20px;
+        }
+        .footer {
+            background-color: #5A5A5A;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        .wrappers {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .wrappers label {
+            display: block;
+        }
+        .numbers{
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0.5px solid black;
+            height: 35px;
+            border-radius: 10px;
+            width: 320px;
         }

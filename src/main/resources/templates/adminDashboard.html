@@ -1,74 +1,130 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Home</title>
-<link rel=" stylesheet" href="css/adminDashboard.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>adminDashboard</title>
+    <link rel="stylesheet" href="css/adminDashboard.css">
 </head>
-<body>
-	<th:bock th:insert="~{header.html}"></th:bock>
-	<p th:if="${correct}" style="color: green" th:text="${correct}"></p>
-	<p th:if="${error}" style="color: red" th:text="${error}"></p>
-	<div class="container">
-		<div class="booking-form">
-			<form class="form-booking" action="/admin-flight-result">
-				<div class="dropdown">
-					<input type="text" id="searchInput" class="box"
-						placeholder="Select Departure Airport" name="depAirport" required>
-					<div id="dropdownList" class="dropdown-list"></div>
-				</div>
-				<div class="dropdown2">
-					<input type="text" id="searchInput2" class="box2"
-						placeholder="Select Destination Airport" name="desAirport" required>
-					<div id="dropdownList2" class="dropdown-list2"></div>
-				</div>
-				<div class="date">
-					Departure Date <input class="date-selector" type="date" name="depDate"  required>
-				</div>
-				<input class="buttons" type="submit" value="Search Flight">
-			</form>
-		</div>
 
-		<div class="welcome">
-			<div class="welcome-note">
-			<div class="content">
-			<h2>Welcome to Your Dashboard, Admin!</h2>
-            Before making any changes, please read through these instructions carefully to ensure a smooth navigation experience. If you encounter any confusion, feel free to reach out to a developer for assistance.
-            <br>
-            <br>
-            1.Refreshing Your Dashboard: You can refresh your dashboard at any time by clicking on the logo located on the left side of the navbar.
-            <br>
-            <br>
-            2. Flight History: To view the flights you have flown in the past, simply click on the "Flight History" button in the navbar.
-            <br>
-            <br>
-            3. Pending Flights: Check your pending flights, those booked but yet to depart, by clicking on the "Pending Flights" button in the navbar.
-            <br>
-            <br>
-            4. Flown Flights Database: Access all flown flights ever recorded in the database, including passenger information, by clicking on the "Flown Flights" button in the navbar.
-            <br>
-            <br>
-            5. Adding Public Flights: Click on the "Add Public Flight" button to add a flight for a specific day in the future. Remember, this flight is for one day only and is not scheduled automatically by the system. (You can Scroll here.)
-            <br>
-            <br>
-            6. Adding New Scheduled Flights: Use the "Add New Flight" button to add a flight that will be automatically scheduled by the system for everyday use. Be cautious, as the system will schedule this flight instantly for today up to 12 days ahead. Contact a developer if you are confused about this.
-            <br>
-            <br>
-            7. Viewing System Flights: By clicking "View All Flights", you can see all flights that the system uses as a data source to schedule future flights. These flights are added using the "Add New Flight" button.
-            <br>
-            <br>
-            8. Booking Flights: Easily book flights of your choice by utilizing the search feature located on the left of this instruction box.
-            <br>
-            <br>
-            Remember, these instructions must be read thoroughly before making any changes. Should you encounter any confusion or require further assistance, don't hesitate to contact a developer.
-            Happy navigating!
-</div>
-</div>
-		</div>
-	</div>
+<body>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
+        <div class="nav-wrapper">
+        </div>
+        <div class="profiles">
+            <img src="image/profile.png" class="profile" id="profileImg" alt="Profile Image">
+            <div class="popup" id="popupDiv">
+                <img src="image/profile.png" class="profile1" alt="Profile Image">
+                <p>Welcome <span th:text="${fullname}"></span></p>
+                <button onclick="redirectToLogout()" class="Logout">Logout</button>
+            </div>
+           <p>Welcome <span th:text="${fullname}"></span></p>
+        </div>
+
+    </div>
+
+    <div class="header">
+        <div class="buttons">
+            <div class="btn-wrapper">
+                <li class="btn-login" style="margin-right: 110px;"><a href="/booked-flights">Today's Flights</a></li>
+                <li class="btn-login"><a href="/history">Flight History</a></li>
+            </div>
+            <div class="btn-wrapper">
+                <li class="btn-login" style="margin-right: 110px;"><a href="/pending">Pending Flight</a></li>
+                <li class="btn-login"><a  href=" /flown-flights">Flown Flights</a></li>
+            </div>
+            <div class="btn-wrapper">
+                <li class="btn-login" style="margin-right: 110px;"><a href="/add-public-flight">Add Public Flight</a>
+                </li>
+                <li class="btn-login"><a href="/add-flight">Add New flight</a></li>
+            </div>
+            <div class="btn-wrapper">
+                <li class="btn-login" style="margin-left: 150px;"><a href="/view-flights">View all Flights</a></li>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>Welcome to Your Dashboard <span th:text="${fullname}"></span></h2>
+            <div class="instruction">
+                1. Viewing Today's Flight Sales: Navigate to the "Today's Flight" button on the left. From there, you
+                can explore all the flights scheduled for today, categorized as follows:
+                <br>
+                - Fully Booked Flights: All seats are booked.
+                <br>
+                - Partially Booked Flights: Some seats are booked, and some are available.
+                <br>
+                - Untouched Flights: No seats are booked yet.
+                <br>
+                <br>
+                2. Flight History: Access your own flight history by selecting the "Flight History" button on the
+                left. You can also view details of the passengers you booked flights for.
+                <br>
+                <br>
+                3. Pending Flights: Check your pending flights by clicking on the "Pending Flights" button on the
+                left. You can also review passenger details for these flights.
+                <br>
+                <br>
+                4. Flown Flights Database: Explore all flights recorded in our database by clicking on the "Flown
+                Flights" button. You'll find passenger information for each flight.
+                <br>
+                <br>
+                5. Adding Public Flights: Use the "Add Public Flight" button on the left to add a flight for a
+                specific future date. Remember, these flights are only scheduled for the chosen day and are not
+                automated by the system.
+                <br>
+                <br>
+                6. Adding New Scheduled Flights: Utilize the "Add New Flight" button on the left to schedule flights
+                automatically for everyday use. Exercise caution, as the system will schedule these flights instantly
+                for today up to 12 days ahead. Contact a developer if you need assistance.
+                <br>
+                <br>
+                7. Viewing System Flights: Click on "View All Flights" to see all flights used by the system as a
+                data source for scheduling. You can edit or delete these flights, but proceed with caution.
+                <br>
+                <br>
+                8. Booking Flights: Search and book any flight below by entering desired airports and departure
+                date. Use the search feature to find and book your preferred flights.
+                <br>
+                <br>
+                Remember to review these instructions thoroughly before proceeding. If you encounter any confusion or
+                need assistance, don't hesitate to contact a developer. Happy navigating!
+            </div>
+
+        </div>
+
+        <div class="search-container">
+            <form action="/admin-flight-result">
+                <p th:if="${error}" style="color: red" th:text="${error}"></p>
+                <div class="inputs">
+                    <div class="input-wrapper">
+                        <label for="from">From:</label>
+                        <div>
+                            <input class="input" type="text" id="searchInput" name="depAirport" required>
+                            <div id="dropdownList" class="dropdown-list"></div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="to">To:</label>
+                        <div>
+                            <input type="text" class="input" id="searchInput2" name="desAirport" required>
+                            <div id="dropdownList2" class="dropdown-list2"></div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="date">Date:</label>
+                        <input type="date" class="inputdate" id="date" name="depDate" required>
+                    </div>
+
+                    <button type="submit">
+                        <img class="searchicon" src="image/icon _search.png" alt="Search Icon" />
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
-<script src="js/home.js">
-	
-</script>
+<script src="js/userDashboard.js"></script>
 </html>

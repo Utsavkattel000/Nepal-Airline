@@ -1,55 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Add Flight</title>
-<link rel=" stylesheet" href="css/addFlight.css">
-</head>
-<body>
-	<div class="disclaimer">
-		<h1>Before you add flight!</h1>
-		Lorem IpsumDiam, aptent varius eleifend penatibus placerat posuere.
-		Amet suscipit ad iaculis varius habitant. Turpis etiam cubilia
-		tincidunt sociis mi vitae laoreet. Volutpat praesent, nisi leo. Vel
-		nisl enim porta natoque gravida. Nostra sociosqu turpis dictum natoque
-		vehicula sollicitudin metus etiam ut mollis? Augue velit, est natoque.
-		Nostra sociosqu turpis dictum natoque vehicula sollicitudin metus
-		etiam ut mollis? Augue velit, est natoque. Nostra sociosqu turpis
-		dictum natoque vehicula sollicitudin metus etiam ut mollis? Augue
-		velit, est natoque. Nostra sociosqu turpis dictum natoque vehicula
-		sollicitudin metus etiam ut mollis? Augue velit, est natoque.
-	</div>
-	<div class="add-flight-container">
-		<h1>Add Flight</h1>
-		<form class="form" action="/add-flight" method="post">
-			<p th:if="${error}" style="color: red" th:text="${error}"></p>
-			<div class="dropdown">
-				<label>Departure Airport</label> 
-				<input type="text" name="depAirport" id="searchInput" class="box" required>
-				<div id="dropdownList" class="dropdown-list"></div>
-			</div>
-			<div class="dropdown2">
-				<label>Destination Airport</label> 
-				<input type="text" name="desAirport" id="searchInput2" class="box2" required>
-				<div id="dropdownList2" class="dropdown-list2"></div>
-			</div>
-			<label>Departure Time</label> 
-			<input type="time" class="input2" name="depTime" required> 
-			<label>Arrival Time</label> 
-			<input type="time" class="input2" name="arrivalTime" required> 
-			<label>Capacity</label>
-			<input type="number" class="input" name="capacity" id="capacity" required> 
-			<label>Price</label>
-			<input type="number" inputmode="decimal" name="price" class="input" id="price" required> 
-			<label>Airline Name</label> 
-			<input type="text" class="input" name="airline" id="name" required>
-			<br>
-			<button type="submit" class="button">Add Flight</button>
-		</form>
-	</div>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addFlight</title>
+    <link rel=" stylesheet" href="css/addFlight.css">
+    <style type="text/css">
+    .wrapper {
+            background-image: url(image/signupBackground.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -20px;
+            margin-right: -8px;
+            height: 600px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <p th:if="${error}" style="color: red" th:text="${error}"></p>
+            <form class="form" id="container" action="/add-flight" method="post">
+                <h3>Add Flight</h3>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="depAirport" style="margin-left: -140px;">Departure Airport</label>
+                        <input type="text" class="input" name="depAirport" id="searchInput" required>
+                        <div id="dropdownList" class="dropdown-list"></div>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -130px;">Destination Airport</label>
+                        <input type="text" class="input" name="desAirport" id="searchInput2" required>
+                        <div id="dropdownList2" class="dropdown-list2"></div>
+                    </div>
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="email" style="margin-left: -145px;">Departure Time</label>
+                        <input type="time" class="input" name="depTime" id="depTime" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -165px;">Arrival Time</label>
+                        <input type="time" class="input" name="arrivalTime" id="arrivalTime" required>
+                    </div>
+
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label style="margin-left: -190px;">Capacity</label>
+                        <input type="number" class="input" name="capacity" id="capacity" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -215px;">Price</label>
+                        <input type="number" inputmode="decimal" class="input" name="price" id="price" required>
+                    </div>
+
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label style="margin-left: -160px;">Airline Name</label>
+                        <input type="text" class="input" name="airline" id="name" required>
+                    </div>
+                    <button class="button" type="submit">Add Flight</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
-<script src="js/home.js">
-	
+<script src="js/addFlight.js">
+
 </script>
+
 </html>

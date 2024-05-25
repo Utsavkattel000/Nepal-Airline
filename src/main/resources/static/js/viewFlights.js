@@ -6,7 +6,7 @@ function filterFlights() {
 	tr = table.getElementsByTagName("tr");
 
 	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[5]; // Column index for airline is 5
+		td = tr[i].getElementsByTagName("td")[4]; // Column index for airline is 5
 		if (td) {
 			txtValue = td.textContent || td.innerText;
 			if (txtValue.toUpperCase().indexOf(filter) > -1) {

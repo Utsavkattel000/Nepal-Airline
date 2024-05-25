@@ -1,35 +1,13 @@
 const options = ["Bajura", "Bhadrapur", "Bhairahawa", "Bharatpur", "Bhojpur", "Biratnagar", "Dang",
-	"Dhangadhi", "Dolpa", "Ilam", "Janakpur", "Jomsom", "Jumla", "Kathmandu", "Khanidanda",
-	"Lukla", "Nepalgunj", "Phaplu", "Pokhara", "Rajbiraj", "Ramechhap", "Rara", "Rukum", "Simara",
-	"Simikot", "Surkhet", "Talcha", "Taplejung", "Thamkharka", "Tumlingtar", "Varanasi"];
+    "Dhangadhi", "Dolpa", "Ilam", "Janakpur", "Jomsom", "Jumla", "Kathmandu", "Khanidanda",
+    "Lukla", "Nepalgunj", "Phaplu", "Pokhara", "Rajbiraj", "Ramechhap", "Rara", "Rukum", "Simara",
+    "Simikot", "Surkhet", "Talcha", "Taplejung", "Thamkharka", "Tumlingtar", "Varanasi"];
 
 
 const searchInput = document.getElementById("searchInput");
 const dropdownList = document.getElementById("dropdownList");
 const searchInput2 = document.getElementById("searchInput2");
 const dropdownList2 = document.getElementById("dropdownList2");
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const depAirportInput = document.getElementById('searchInput');
-    const desAirportInput = document.getElementById('searchInput2');
-    const form = document.querySelector('form');
-
-    form.addEventListener('submit', function (event) {
-        if (depAirportInput.value === desAirportInput.value) {
-            depAirportInput.setCustomValidity('Departure and destination airports cannot be the same');
-            event.preventDefault();
-        } else {
-            depAirportInput.setCustomValidity('');
-        }
-    });
-
-    // Clear custom validity when input changes
-    depAirportInput.addEventListener('input', function () {
-        depAirportInput.setCustomValidity('');
-    });
-});
 
 displayOptions(options);
 displayOptions2(options);
@@ -108,14 +86,36 @@ searchInput.addEventListener("blur", function() {
 
 	}
 });
+  var depDateInput = document.querySelector('input[name="depDate"]');
 
-searchInput2.addEventListener("blur", function() {
-	if (!options.includes(searchInput2.value.toUpperCase())) {
-		searchInput2.value = "";
+// Get today's date
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+var yyyy = today.getFullYear();
+var todayString = yyyy + '-' + mm + '-' + dd;
 
-	}
-});
+// Set the minimum attribute of the input field to today's date
+depDateInput.setAttribute('min', todayString);
 
+// Calculate the maximum date (today + 12 days)
+var maxDate = new Date(today);
+maxDate.setDate(maxDate.getDate() + 12);
+var max_dd = String(maxDate.getDate()).padStart(2, '0');
+var max_mm = String(maxDate.getMonth() + 1).padStart(2, '0'); // January is 0!
+var max_yyyy = maxDate.getFullYear();
+var maxDateString = max_yyyy + '-' + max_mm + '-' + max_dd;
+
+// Set the maximum attribute of the input field to 12 days into the future
+depDateInput.setAttribute('max', maxDateString);
+
+
+function redirectToSignup() {
+	window.location.href = "/signup";
+}
+function redirectToLogin() {
+	window.location.href = "/login";
+}
   document.getElementById("capacity").addEventListener("input", function() {
     var capacity = parseInt(this.value);
     if (capacity < 15) {
@@ -148,32 +148,4 @@ searchInput2.addEventListener("blur", function() {
     });
 
 
-var depDateInput = document.querySelector('input[name="depDate"]');
 
-// Get today's date
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-var yyyy = today.getFullYear();
-var todayString = yyyy + '-' + mm + '-' + dd;
-
-// Set the minimum attribute of the input field to today's date
-depDateInput.setAttribute('min', todayString);
-
-// Calculate the maximum date (today + 12 days)
-var maxDate = new Date(today);
-maxDate.setDate(maxDate.getDate() + 12);
-var max_dd = String(maxDate.getDate()).padStart(2, '0');
-var max_mm = String(maxDate.getMonth() + 1).padStart(2, '0'); // January is 0!
-var max_yyyy = maxDate.getFullYear();
-var maxDateString = max_yyyy + '-' + max_mm + '-' + max_dd;
-
-// Set the maximum attribute of the input field to 12 days into the future
-depDateInput.setAttribute('max', maxDateString);
-
-function redirectToSignup() {
-	window.location.href = "/signup";
-}
-function redirectToLogin() {
-	window.location.href = "/login";
-}

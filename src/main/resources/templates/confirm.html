@@ -2,79 +2,97 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<meta charset="ISO-8859-1">
-<title>All Flights</title>
-<link rel=" stylesheet" href="css/confirm.css">
+    <meta charset="ISO-8859-1">
+    <title>confirm</title>
+    <link rel=" stylesheet" href="css/confirm.css">
+    <style>
+        .container{
+            background-image: url(image/confirmbackground.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-left: -10px;
+            margin-right: -8px;
+            height: 600px;
+            margin-top: -10px;
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container1">
-		<div class="h1">
-			<h5>Your Flight</h5>
-		</div>
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo">
+    </div>
+    <div class="container">
+        <br>
+        <div class="container1">
+        <div class="h1">
+            <h3>Your Flight</h3>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="border-left:none ;">Departure Date</th>
+                    <th>Departure Airport</th>
+                    <th>Destination Airport</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Flight Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="f :${flight}">
+                    <td style="border-left: none;">[[${f.depDate}]]</td>
+                    <td>[[${f.depAirport}]]</td>
+                    <td>[[${f.desAirport}]]</td>
+                    <td>[[${f.depTime}]]</td>
+                    <td>[[${f.arrivalTime}]]</td>
+                    <td>[[${f.airline}]]</td>
+                    <td th:text="${price}"></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Departure Date</th>
-					<th>Departure Airport</th>
-					<th>Destination Airport</th>
-					<th>Departure Time</th>
-					<th>Arrival Time</th>
-					<th>Flight Name</th>
-					<th>Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="f :${flight}">
-					<td>[[${f.depDate}]]</td>
-					<td>[[${f.depAirport}]]</td>
-					<td>[[${f.desAirport}]]</td>
-					<td>[[${f.depTime}]]</td>
-					<td>[[${f.arrivalTime}]]</td>
-					<td>[[${f.airline}]]</td>
-					<td th:text="${price}"></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+<img src="image/ticketguy.png" alt="ticketguy" class="ticketguy">
+    <div class="container2">
+        <div class="h1">
+            <h3>Passenger(s) Information</h3>
+        </div>
 
+        <table class="table2">
+            <thead>
+                <tr>
+                    <th style="border-left:none ;">Full Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Nationality</th>
 
-	<div class="container2">
-		<div class="h1">
-			<h5>Passenger/s Informations</h5>
-		</div>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p :${passengers}">
+                    <td style="border-left: none;">[[${p.fullName}]]</td>
+                    <td>[[${p.phone}]]</td>
+                    <td>[[${p.email}]]</td>
+                    <td>[[${p.age}]]</td>
+                    <td>[[${p.gender}]]</td>
+                    <td>[[${p.nationality}]]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-		<table class="table2">
-			<thead>
-				<tr>
-					<th>Full Name</th>
-					<th>Phone</th>
-					<th>Email</th>
-					<th>Age</th>
-					<th>Gender</th>
-					<th>Nationality</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="p :${passengers}">
-					<td>[[${p.fullName}]]</td>
-					<td>[[${p.phone}]]</td>
-					<td>[[${p.email}]]</td>
-					<td>[[${p.age}]]</td>
-					<td>[[${p.gender}]]</td>
-					<td>[[${p.nationality}]]</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<li class="button1"><a class="nav-link1" href="/cancel">Cancel
-			Booking</a></li>
-	<li class="button2"><a class="link" href="/final">Confirm
-			Booking</a></li>
-
+    <li class="button1"><a class="nav-link1" href="/cancel">Cancel
+            Booking</a></li>
+    <li class="button2"><a class="link" href="/final">Confirm
+            Booking</a></li>
+    </div>
+    
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
 
 </html>

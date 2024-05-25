@@ -3,24 +3,26 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>All Passengers</title>
-<link rel=" stylesheet" href="css/flighthistory.css">
+<title>passengers</title>
+<link rel=" stylesheet" href="css/flownFlights.css">
 <style>
 </style>
 </head>
 <body>
-	<div class="container">
-		<input type="text" id="searchInput" class="search"
-			oninput="filterFlights()"
-			placeholder="Search by Name...">
+<div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
+
+    </div>
+	<div class="container" style="height:550px;">
 		<div class="h1">
 			<h1>Passengers</h1>
+		<input type="text" id="searchInput" class="search" oninput="filterFlights()" placeholder="Search by Name...">
 		</div>
 
 
 		<table class="table">
 			<thead>
-				<tr>
+				<tr style="margin-top:10px;">
 					<th>Full Name</th>
 					<th>Phone</th>
 					<th>Email</th>
@@ -41,6 +43,7 @@
 			</tbody>
 		</table>
 	</div>
+	<div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
 <script>
 function filterFlights() {

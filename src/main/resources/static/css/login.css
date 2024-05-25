@@ -1,122 +1,101 @@
+ body {
+        max-height: 100vh;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-.websitelogo{
-    max-width: 100px;
-    max-height: 100px;
-    margin-left: 20px;
-}
-.navbar{
-    display: inline-flex;
-    background-color: white;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-top: -10px;
-    width: 209vh;
-    max-height: 100px;
-}
-.nav-wrapper{
-    margin-left:50px;
-    margin-top: 30px;
-}
-.navs{
-    text-decoration: none;
-    color: black;
-    margin-left: 50px;
-    font-size: 4cqb;
-    font-weight: bold;
-    
-}
-.subbody{
-    font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.login-container {
-	background-color: #A0DDF7;
-    opacity: 80%;
-	border-radius: 20px;
-	padding: 20px;
-	width: 350px;
-	text-align: center;
-    margin-top: 50px;
-    height: 420px;
-}
-.password{
-	margin-left:-260px;
-}
-.email{
-	margin-left:-288px;
-}
-.login-container h1 {
-	margin-top: 30px;
-	color: black;
-}
+     
 
-.login-container form {
-	display: grid;
-	flex-direction: column;
-}
+      .subbody {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+      }
 
-.login-container label {
-	margin-bottom: 8px;
-	color: black;
-}
+      .login-container {
+        background-color: rgba(160, 221, 247, 0.8); /* Use RGBA for opacity */
+        border-radius: 20px;
+        padding: 40px 30px;
+        width: 350px;
+        max-height: 450px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-.login-container input {
-	padding: 8px;
-	margin-bottom: 30px;
-	margin-right: 10px;
-	border: 1px solid rgb(255, 255, 255);
-	border-radius: 15px;
-}
+      .login-container h1 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 24px;
+      }
 
-.login-container input[type="email"], .login-container input[type="password"]
-	{
-	background-color: white;
-	box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
-}
+      .login-container form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
 
-.login-container button {
-	box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-	border-radius: 10px;
-	background-color: #56B9FF;
-	border: none;
-	display: block;
-	margin: 0 auto;
-	margin-bottom: 20px;
-	height: 40px;
-	padding: 3px;
-	width: 150px;
-	cursor: pointer;
-}
+      .login-container label {
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: bold;
+        text-align: left;
+      }
 
-.login-container button:hover {
-	background-color: #F7B030;
-}
+      .login-container input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
 
-.login-container .container {
-	margin-top: 10px;
-}
+      .login-container input[type="email"],
+      .login-container input[type="password"] {
+        background-color: #fff;
+        box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+          rgba(0, 0, 0, 0.1) 0px 0px 5px 0px;
+      }
 
-a {
-	color: rgb(13, 83, 154);
-}
-.container{
-	color:black;
-}
-input[type=submit]:hover, a:hover {
-	opacity: 0.8;
-}
-.footer{
-    background-color: #5A5A5A;
-    display: flex;
-    align-items: center;
-	justify-content: center;
-    color: white;
-    height: 50px;
-    margin-top:73px;
-    margin-left: -10px;
-    margin-right: -10px;
-}
+      .login-container button {
+        background-color: #56b9ff;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      .login-container button:hover {
+        background-color: #3daefe;
+      }
+
+      .login-container .container {
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+      .login-container .container a {
+        color: #0d539a;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .login-container .container a:hover {
+        color: #0b417a;
+      }
+
+      .login-container p {
+        margin: 0 0 15px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: left;
+      }

@@ -1,0 +1,86 @@
+ .websitelogo {
+      max-width: 100px;
+      max-height: 100px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-wrapper {
+      display: flex;
+    }
+
+    .navs {
+      text-decoration: none;
+      color: black;
+      margin-left: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      margin-right: 50px;
+    }
+
+    .navs:hover {
+      color: #007bff;
+    }
+
+    .plane {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      max-width: 200px;
+    }
+
+    .subbody {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      overflow-y: auto;
+      height: calc(100vh - 160px);
+      box-sizing: border-box;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Custom Scrollbar Styling */
+    .subbody::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .subbody::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+    }
+
+    .subbody::-webkit-scrollbar-thumb {
+      background: rgba(0, 123, 255, 0.7);
+      border-radius: 10px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .subbody h1 {
+      text-align: center;
+    }
+
+    .subbody h3,
+    .subbody p {
+      margin-left: 100px;
+    }
+
+    .footer {
+      background-color: #5A5A5A;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }

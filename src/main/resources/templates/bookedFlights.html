@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>bookedFlight</title>
+<link rel=" stylesheet" href="css/flightResult.css">
+</head>
+<body>
+	<div class="container">  
+		<div class="h1">
+			<h1>Fully Booked Flights</h1>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Departure Date</th>
+					<th>Departure Airport</th>
+					<th>Destination Airport</th>
+					<th>Departure Time</th>
+					<th>Arrival Time</th>
+					<th>Flight Name</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c :${completelyBooked}">
+					<td>[[${c.depDate}]]</td>
+					<td>[[${c.depAirport}]]</td>
+					<td>[[${c.desAirport}]]</td>
+					<td>[[${c.depTime}]]</td>
+					<td>[[${c.arrivalTime}]]</td>
+					<td>[[${c.airline}]]</td>
+					<td>[[${c.price}]]</td>
+					<td><a th:href="@{/flown-passengers(id=${c.id})}"><input type="Submit"
+							style="text-decoration: none;" class="button" value="Passengers"></a>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	<div class="container">  
+		<div class="h1">
+			<h1>Partially Booked Flights</h1>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+				    <th>Seats Left</th>
+					<th>Departure Date</th>
+					<th>Departure Airport</th>
+					<th>Destination Airport</th>
+					<th>Departure Time</th>
+					<th>Arrival Time</th>
+					<th>Flight Name</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p :${partiallyBooked}">
+				    <td>[[${p.capacity}]]</td>
+					<td>[[${p.depDate}]]</td>
+					<td>[[${p.depAirport}]]</td>
+					<td>[[${p.desAirport}]]</td>
+					<td>[[${p.depTime}]]</td>
+					<td>[[${p.arrivalTime}]]</td>
+					<td>[[${p.airline}]]</td>
+					<td>[[${p.price}]]</td>
+					<td><a th:href="@{/flown-passengers(id=${p.id})}"><input type="Submit"
+							style="text-decoration: none;" class="button" value="Passengers"></a>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	<div class="container">  
+		<div class="h1">
+			<h1>Untouched Flights</h1>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+				    <th>Capacity</th>
+					<th>Departure Date</th>
+					<th>Departure Airport</th>
+					<th>Destination Airport</th>
+					<th>Departure Time</th>
+					<th>Arrival Time</th>
+					<th>Flight Name</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="u :${untouched}">
+				    <td>[[${u.capacity}]]</td>
+					<td>[[${u.depDate}]]</td>
+					<td>[[${u.depAirport}]]</td>
+					<td>[[${u.desAirport}]]</td>
+					<td>[[${u.depTime}]]</td>
+					<td>[[${u.arrivalTime}]]</td>
+					<td>[[${u.airline}]]</td>
+					<td>[[${u.price}]]</td>
+					<td><a th:href="@{/flown-passengers(id=${u.id})}"><input type="Submit"
+							style="text-decoration: none;" class="button" value="Passengers"></a>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	<div class="container">  
+		<div class="h1">
+			<h1>Flown Flights of Today</h1>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+				    <th>Unbooked Seats</th>
+					<th>Departure Date</th>
+					<th>Departure Airport</th>
+					<th>Destination Airport</th>
+					<th>Departure Time</th>
+					<th>Arrival Time</th>
+					<th>Flight Name</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="fl :${flownFlights}">
+				    <td>[[${fl.capacity}]]</td>
+					<td>[[${fl.depDate}]]</td>
+					<td>[[${fl.depAirport}]]</td>
+					<td>[[${fl.desAirport}]]</td>
+					<td>[[${fl.depTime}]]</td>
+					<td>[[${fl.arrivalTime}]]</td>
+					<td>[[${fl.airline}]]</td>
+					<td>[[${fl.price}]]</td>
+					<td><a th:href="@{/flown-passengers(id=${fl.id})}"><input type="Submit"
+							style="text-decoration: none;" class="button" value="Passengers"></a>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+</body>
+<script src="js/flownFlights.js">
+</script>
+</html>

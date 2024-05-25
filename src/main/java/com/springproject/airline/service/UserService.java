@@ -17,7 +17,6 @@ public interface UserService {
 
 	void saveUser(User user);
 	
-	
 	User getUserById(Long id);
 	
 	List<User> getUserByFlownFlight(FlownFlight flownFlight);

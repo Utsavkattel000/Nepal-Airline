@@ -74,6 +74,12 @@ public class PublicFlightServiceImpl implements PublicFlightService {
 		
 	}
 
+	@Override
+	public List<PublicFlight> getPublicFlightsByDepDate(LocalDate today) {
+		
+		return publicFlightRepo.getFlightsByDepDate(today);
+	}
+
 	
 
 	

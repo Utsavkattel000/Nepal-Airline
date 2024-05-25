@@ -1,5 +1,6 @@
 package com.springproject.airline.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,11 @@ public class FlownFlightServiceImpl implements FlownFlightService {
 	public List<FlownFlight> getAllFlownFlights() {
 		
 		return flownFlightRepo.findAll();
+	}
+	@Override
+	public List<FlownFlight> getFlownFlightsByDepDate(LocalDate today) {
+		
+		return flownFlightRepo.getFlownFlightsByDepDate(today);
 	}
 
 }

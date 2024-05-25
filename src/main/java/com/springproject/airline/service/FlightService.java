@@ -15,4 +15,5 @@ public interface FlightService {
 	Flight getFlightById(Long id);
 
 	void updateFlight(Flight flight);
+	
 }

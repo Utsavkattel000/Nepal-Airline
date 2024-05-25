@@ -44,7 +44,7 @@ public class UserController {
 	@GetMapping("/")
 	public String userHome(HttpSession session) {
 		if (session.getAttribute("activeUser") != null) {
-			return "userDashboard";
+			return "redirect:/user-dashboard";
 		}
 		if (session.getAttribute("activeAdmin") != null) {
 			return "redirect:/admin-dashboard";
@@ -53,8 +53,10 @@ public class UserController {
 	}
 
 	@GetMapping("/user-dashboard")
-	public String userDashboard(HttpSession session, RedirectAttributes attribute) {
+	public String userDashboard(HttpSession session, RedirectAttributes attribute,Model model) {
 		if (session.getAttribute("activeUser") != null) {
+			User user=(User) session.getAttribute("activeUser");
+			model.addAttribute("fullname", user.getFullName());
 			return "userDashboard";
 		}
 
@@ -222,7 +224,8 @@ public class UserController {
 	public String pending(HttpSession session, Model model, RedirectAttributes attribute) {
 		if (session.getAttribute("activeUser") != null) {
 			User user = (User) session.getAttribute("activeUser");
-			Set<Long> publicFlightIds = user.getPublicFlightId();
+			User updateduser=userService.getUserById(user.getId());
+			Set<Long> publicFlightIds = updateduser.getPublicFlightId();
 			Set<PublicFlight> publicFlights = new HashSet<>();
 			for (Long publicFlightId : publicFlightIds) {
 				System.out.println("PublicFlightIds: " + publicFlightId);
@@ -233,7 +236,8 @@ public class UserController {
 		}
 		if (session.getAttribute("activeAdmin") != null) {
 			User admin = (User) session.getAttribute("activeAdmin");
-			Set<Long> publicFlightIds = admin.getPublicFlightId();
+			User updatedAdmin= userService.getUserById(admin.getId());
+			Set<Long> publicFlightIds = updatedAdmin.getPublicFlightId();
 			Set<PublicFlight> publicFlights = new HashSet<>();
 			for (Long publicFlightId : publicFlightIds) {
 				System.out.println("PublicFlightIds: " + publicFlightId);

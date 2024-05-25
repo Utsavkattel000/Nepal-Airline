@@ -2,55 +2,94 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dynamic Form</title>
-<link rel=" stylesheet" href="css/passengerDetails.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>passengerDetails</title>
+    <link rel=" stylesheet" href="css/passengerDetails.css">
+    <style type="text/css">
+    .wrapper {
+            background-image: url(image/bgairlines.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            margin-left: -20px;
+            margin-right: -8px;
+            height: 600px;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container">
+    <div class="navbar">
+        <img src="image/website logo.png" alt="Website Logo" class="websitelogo" />
 
-		<p th:if="${error}" style="color: red" th:text="${error}"></p>
-		<form class="form" id="container" action="/book" method="post">
-			<h3>Passenger</h3>
-			<label>Full Name:</label> 
-			<input type="text" class="input" name="fullName" id="fullName" required> 
-			<label>Phone:</label>
-			<input type="text" class="input" name="phone" required> 
-			<label>Email:</label> 
-			<input type="email" class="input" name="email" required> 
-			<label>Age</label> 
-			<input type="number" class="input" name="age" id="ageInput" required> 
-			<label>Gender</label> 
-			<select id="gender" name="gender" class="gender">
-				<option value="male">Male</option>
-				<option value="female">Female</option>
-			</select> 
-			<label>Nationality</label> 
-			<input type="text" class="input" required name="nationality" id="nationality"> 
-			<br>
-			<div class="passenger1">
-				<label style="font-size: large; font: bolder;">No of
-					Passengers.....</label> <span class="counter-btn" onclick="decrement()">-</span>
-				<input type="number" class="passenger" id="numberOfForms" min="1"
-					max="4" value="1" readonly name="numberOfPassenger"> <span
-					class="counter-btn" onclick="increment()">+</span>
-			</div>
-			<div class="radio">
-				<label style="margin-right: 30px">Payment Method:</label> <input
-					type="radio" name="payment_method" value="esewa" required checked>
-				Esewa <input type="radio" name="payment_method" value="imepay">
-				IME Pay<br>
-			</div>
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <p th:if="${error}" style="color: red" th:text="${error}"></p>
+            <form class="form" id="container" action="/book" method="post">
+                <h3>Passenger</h3>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="fullName" style="margin-left: -190px;">Full Name:</label>
+                        <input type="text" class="input" name="fullName" id="fullName" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -220px;">Phone:</label>
+                        <input type="text" class="input" name="phone" required>
+                    </div>
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label for="email" style="margin-left: -220px;">Email:</label>
+                        <input type="email" class="input" name="email" required>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -230px;">Age:</label>
+                        <input type="number" class="input" name="age" id="ageInput" required>
+                    </div>
 
-			<button class="button" type="submit">Next</button>
-		</form>
+                </div>
+                <div class="wrappers">
+                    <div class="wrap">
+                        <label style="margin-left: -215px;">Gender:</label>
+                        <select id="gender" name="gender" class="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="wrap">
+                        <label style="margin-left: -190px;">Nationality:</label>
+                        <input type="text" class="input" required name="nationality" id="nationality">
+                    </div>
 
-	</div>
+                </div>
+                <div class="wrappers">
+                    <div class="passenger1">
+                        <label>No of Passengers.....</label>
+                            <div class="numbers">
+                                <span class="counter-btn1" onclick="decrement()">-</span>
+                                <input type="number" class="passenger" id="numberOfForms" min="1" max="4" value="1" readonly name="numberOfPassenger">
+                                <span class="counter-btn2" onclick="increment()">+</span>
+                            </div>
+                    </div>
+                    <div class="radio">
+                        <label style="margin-left: -60px;">Payment Method:</label>
+                        <input type="radio" name="payment_method" value="esewa" required checked>Esewa
+                        <input type="radio" name="payment_method" value="imepay" style="margin-left: 30px;">IME Pay
+                    </div>
+                </div>
+                <button class="button" type="submit">Next</button>
+            </form>
+        </div>
+        <img src="image/lady.png" alt="lady" class="lady">
+    </div>
+
+    <div class="footer">ⓒ 2024 | Sundar Travels | All Rights Reserved</div>
 </body>
 <script src="js/passengerDetails.js">
-	
+
 </script>
 
 </html>

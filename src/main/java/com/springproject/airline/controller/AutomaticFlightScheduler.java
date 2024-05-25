@@ -33,7 +33,7 @@ public class AutomaticFlightScheduler {
 	@Autowired
 	UserService userService;
 
-	@Scheduled(cron = "0/30 27 * * * ?")
+	@Scheduled(cron = "0/30 0/10 * * * ?")
 	public void autoUpdateFlight() {
 		List<Flight> flights = flightService.getAllFlights();
 		LocalDate today = LocalDate.now();
@@ -73,6 +73,7 @@ public class AutomaticFlightScheduler {
 					if (publicFlight != null) {
 						Set<User> users = new HashSet<>();
 						users.addAll(userService.getUserByPublicFlightId(publicFlight.getId()));
+						System.out.println("Users"+users.size());
 						Set<Passenger> passengers = passengerService.getPassengersByPublicFlight(publicFlight);
 						FlownFlight flownFlight = new FlownFlight();
 						flownFlight.setDepDate(publicFlight.getDepDate());
@@ -90,18 +91,12 @@ public class AutomaticFlightScheduler {
 							passenger.setPublicFlight(null);
 							passengerService.savePassenger(passenger);
 						}
-
 						for (User user : users) {
 							Set<FlownFlight> flight= user.getFlownFlight();
 							flight.add(flownFlight);
-							System.out.println("FlownFLight id check "+flownFlight.getId());
 							user.setFlownFlight(flight);
 							Set<Long> ids=user.getPublicFlightId();
-							System.out.println("length of ids before "+ids.size());
-							System.out.println("Id of to be removed publicFlightId "+publicFlight.getId());
-							boolean worked= ids.remove(publicFlight.getId());
-							System.out.println("after "+ids.size());
-							System.out.println("remove status "+worked);
+							ids.remove(publicFlight.getId());
 							user.setPublicFlightId(ids);
 							userService.saveUser(user);
 						}
