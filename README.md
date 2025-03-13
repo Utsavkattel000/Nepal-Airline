@@ -29,9 +29,6 @@ Welcome to **Nepal Airline**, a platform designed to simplify the process of pur
 ## ❗ Disclaimer
 This is a **dummy project** and is not intended for real flight bookings.
 
-## 🤝 Contribution
-We welcome contributions! Feel free to fork the repository and submit a pull request.
-
 
 ## 📧 Contact
 For inquiries or support, reach out at: [utsavkattel00@gmail.com)
