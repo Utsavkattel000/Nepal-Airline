@@ -11,7 +11,7 @@ Welcome to **Nepal Airline**, a platform designed to simplify the process of pur
 
 ## 🛠️ Tech Stack
 **Backend:**
-- 🌿 Spring Boot – RESTful API and business logic
+- 🌿 Spring Boot – Backend
 - 🛢️ MySQL – Database for storing user and flight data
 - 🔗 JPA Repository – Database connection and ORM
 
